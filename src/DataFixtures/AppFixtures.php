@@ -15,9 +15,9 @@ class AppFixtures extends Fixture
         for($i = 0; $i < 5; $i++) {
             $bien=new Bien();
         $bien->setnom("Le bien du nom de" . $i)
-            ->setPrix("Le prix est de " . $i)
+            ->setPrix($i)
             ->setAdresse("L'adresse :" . $i)
-            ->setImage();
+            ->setImage("abcd");
             $manager->persist($bien);
         }
 
