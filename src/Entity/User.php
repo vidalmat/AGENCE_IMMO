@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -54,6 +56,27 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=13)
      */
     private $tel;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Message::class, mappedBy="users")
+     */
+    private $message;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="rdv")
+     */
+    private $users;
+
+    /**
+     * @ORM\OneToMany(targetEntity=User::class, mappedBy="users")
+     */
+    private $rdv;
+
+    public function __construct()
+    {
+        $this->message = new ArrayCollection();
+        $this->rdv = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -180,6 +203,78 @@ class User implements UserInterface
     public function setTel(string $tel): self
     {
         $this->tel = $tel;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Message[]
+     */
+    public function getMessage(): Collection
+    {
+        return $this->message;
+    }
+
+    public function addMessage(Message $message): self
+    {
+        if (!$this->message->contains($message)) {
+            $this->message[] = $message;
+            $message->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessage(Message $message): self
+    {
+        if ($this->message->removeElement($message)) {
+            // set the owning side to null (unless already changed)
+            if ($message->getUsers() === $this) {
+                $message->setUsers(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getUsers(): ?self
+    {
+        return $this->users;
+    }
+
+    public function setUsers(?self $users): self
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|self[]
+     */
+    public function getRdv(): Collection
+    {
+        return $this->rdv;
+    }
+
+    public function addRdv(self $rdv): self
+    {
+        if (!$this->rdv->contains($rdv)) {
+            $this->rdv[] = $rdv;
+            $rdv->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRdv(self $rdv): self
+    {
+        if ($this->rdv->removeElement($rdv)) {
+            // set the owning side to null (unless already changed)
+            if ($rdv->getUsers() === $this) {
+                $rdv->setUsers(null);
+            }
+        }
 
         return $this;
     }
