@@ -6,7 +6,7 @@
 <header>
     <div class="conteneur1">
         <div class="logo_header">
-            <a href="index.php?route=showhome"><img src="images/logo.png" alt="logo"></a>
+            <a href="{{path("home")}}"><img src="images/logo.png" alt="logo"></a>
         </div>
         <div class="nav_user">
             <nav>
@@ -43,7 +43,7 @@
     </div>
 </header>
 <section>
-    <p class="fildar">Immo-Dev / <a href="index.php?route=showhome">accueil /</a><span class="span"> connexion</span></p>
+    <p class="fildar">Immo-Dev / <a href="{{path("home")}}">accueil /</a><span class="span"> connexion</span></p>
     <div class="conteneur_connexion">
         <div class="connexion">
             <p class="parconnexion">Vous tentez d'accéder à un contenu qui nécessite que vous soyez connecté(e).</p>
@@ -63,7 +63,7 @@
     <div id="form_button">
         <div class="conteneur_form">
             <div class="formulaire">
-                <form action="index.php?route=insert_client" method="POST">
+                <form action="" method="POST">
                     <input type="text" placeholder="Nom" name="nom" id="nom">
                     <input type="text" placeholder="Prénom" name="prenom" id="prenom">
                     <input type="text" placeholder="Adresse" name="adresse" id="adresse">

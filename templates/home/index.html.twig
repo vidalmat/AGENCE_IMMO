@@ -9,13 +9,17 @@
                         <!-- ------------ Conteneur 1 ------------- -->
     <div class="conteneur1">
         <div class="logo_header">
-            <a href="index.php?route=showhome"><img src="images/logo.png" alt="logo"></a>
+            <a href="{{path("home")}}"><img src="images/logo.png" alt="logo"></a>
         </div>
         <div class="nav_user">
             <nav>
                 <ul>
                     <li class="favoris"><img src="images/coeur_vert.png" alt="coeur" >favoris</li>
-                    <li class="mon_compte"><a href="index.php?route=showform">Mon compte</a></li>
+                    {% if app.user %}
+                    <li class="mon_compte"><a href="{{path("espacemembre")}}">Mon compte</a></li>
+                    {% else %}
+                    <li class="mon_compte"><a href="{{path("formulaire")}}">Mon compte</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>
@@ -117,7 +121,7 @@
                 </div>
                 <div class="band_selection1">
                     <p>Sélectionner</p>
-                    <p class="voir"><a href="index.php?route=showmaison">Voir le bien</a></p>
+                    <p class="voir"><a href="{{path("maison")}}">Voir le bien</a></p>
                 </div>
             </div>
         </div>
@@ -151,7 +155,7 @@
             </div>
             <div class="band_selection2">
                 <p>Sélectionner</p>
-                <p class="voir"><a href="index.php?route=showappartement">Voir le bien</a></p>
+                <p class="voir"><a href="{{path("appartement")}}">Voir le bien</a></p>
             </div>
         </div>
     </div>

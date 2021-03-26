@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Salut!!!! ça fart?{% endblock %}</title>
+        <title>{% block title %}Agence Immobiliere{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -24,7 +24,7 @@
             <!-- ------------ Conteneur 6 ------------- -->
 <div class="conteneur6">
 <div class="logo_footer">
-<a href="index.php?route=showhome"><img src="images/logob&w.png" alt="logo_footer"></a>
+<a href="{{path("home")}}"><img src="images/logob&w.png" alt="logo_footer"></a>
 </div>
 <div class="bloc_text_footer">
 <div class="par1">

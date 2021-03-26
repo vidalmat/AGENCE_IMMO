@@ -6,7 +6,7 @@
 <header>
     <div class="conteneur1">
         <div class="logo_header">
-            <a href="index.php?route=showhome"><img src="images/logo.png" alt="logo"></a>
+            <a href=""{{path("home")}}""><img src="images/logo.png" alt="logo"></a>
         </div>
         <div class="nav_user">
             <nav>
@@ -33,7 +33,7 @@
     </div>
 </header>
 <section>
-    <p class="fildar">Immo-Dev / <a href="index.php?route=showhome">accueil /</a><span class="span"> page-bien</span></p>
+    <p class="fildar">Immo-Dev / <a href=""{{path("home")}}"">accueil /</a><span class="span"> page-bien</span></p>
     <h1>Espace Bien</h1>
     <form action="index.php?route=insert_bien" method="POST" enctype="multipart/form-data">
         <select name="categorie" id="">
