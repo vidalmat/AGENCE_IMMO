@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello FormulaireController!{% endblock %}
+{% block title %}Page Formulaire{% endblock %}
 
 {% block body %}
 <header>
@@ -12,7 +12,11 @@
             <nav>
                 <ul>
                     <li class="favoris"><img src="images/coeur_vert.png" alt="coeur" >favoris</li>
-                    <li class="mon_compte"><a href="index.php?route=showform">Mon compte</a></li>
+                    {% if app.user %}
+                    <li class="mon_compte"><a href="{{path("espacemembre")}}">Mon compte</a></li>
+                    {% else %}
+                    <li class="mon_compte"><a href="{{path("formulaire")}}">Mon compte</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>
@@ -48,7 +52,7 @@
         <div class="connexion">
             <p class="parconnexion">Vous tentez d'accéder à un contenu qui nécessite que vous soyez connecté(e).</p>
             <h1><img src="images/fleche_bas.png" alt="fleche bas">Se connecter</h1>
-            <form action="index.php?route=connect" method="POST" class="bloc_connexion">
+            <form action="" method="POST" class="bloc_connexion">
                 <input type="email" placeholder="Email" name="mail" required>
                 <input type="password" placeholder="Mot de passe" name="mdp" required >
                 <input type="submit" id='submit' value='LOGIN' >
@@ -79,3 +83,4 @@
     <script src="js/button_showform.js"></script><!-- utilisation de js pour faire apparaître le formulaire -->
 </section>
 {% endblock %}
+

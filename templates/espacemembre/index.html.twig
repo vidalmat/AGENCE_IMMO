@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello EspacemembreController!{% endblock %}
+{% block title %}Page Espace-Membre{% endblock %}
 
 {% block body %}
 <header>
@@ -12,7 +12,11 @@
             <nav>
                 <ul>
                     <li class="favoris"><img src="images/coeur_vert.png" alt="coeur" >favoris</li>
-                    <li class="mon_compte"><a href="index.php?route=showform">Mon compte</a></li>
+                    {% if app.user %}
+                    <li class="mon_compte"><a href="{{path("espacemembre")}}">Mon compte</a></li>
+                    {% else %}
+                    <li class="mon_compte"><a href="{{path("formulaire")}}">Mon compte</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>
