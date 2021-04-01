@@ -962,8 +962,13 @@ footer{
     line-height: 10px;
 }
 
+.titre .descriptif_vert:last-child{
+    font-size: 3em;
+    line-height: 5px;
+}
+
 .description{
-    margin-top: 50px;
+    margin-top: 90px;
 }
 
 .description_bien{
@@ -980,7 +985,7 @@ footer{
     position: relative;
     top: -5px;
     border: 2px solid rgb(104, 104, 104);
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid rgb(255, 252, 246);
     padding: 5px;
     border-radius: 4px;
 }
@@ -1092,6 +1097,92 @@ footer{
     box-shadow: 2px 5px 10px 5px rgb(185, 185, 185);
 }
 
+
+/* ----------------------------- DÉBUT DU CAROUSSEL ----------------------------- */
+
+                        
+                            
+.container {
+    margin: 0 auto;
+    width: 70vw;
+    height: calc(70vw/3);
+    position: relative;
+    top: 5vh;
+    left: 1vw;
+    perspective: 1500px;
+    }
+    
+    .carousel {
+    width: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    }
+    
+    .item {
+    position: absolute;
+    background: #000;
+    /* Width : 
+        6 images => 40vw 
+        8 images => 28vw 
+        10 images => 22vw 
+        10 images => 18vw */
+    width: 28vw;
+    /* Left : 
+        (70 - width)/2 */
+    left: 20vw;
+    height: calc(28vw * 9/16);
+    overflow: hidden;
+    border-radius: 10px;
+    opacity: 0.8;
+    -webkit-box-shadow: 0px 2px 11px 7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 2px 11px 7px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 11px 7px rgba(0,0,0,0.75);
+    }
+    
+    .item img {
+        width: 100%;
+    }
+    
+    
+    /* rotateY  = calc((360/nombres d'images)*n° d'image) */
+    #it0 {
+    transform: rotateY(calc((360deg/8)*0)) translateZ(calc(37vw));
+    }
+    #it1 {
+    transform: rotateY(calc((360deg/8)*1)) translateZ(calc(37vw));
+    }
+    #it2 {
+    transform: rotateY(calc((360deg/8)*2)) translateZ(calc(37vw));
+    }
+    #it3 {
+    transform: rotateY(calc((360deg/8)*3)) translateZ(calc(37vw));
+    }
+    #it4 {
+        transform: rotateY(calc((360deg/8)*3)) translateZ(calc(37vw));
+        }
+    
+    .next, .prev {
+    position: absolute;
+    top: 66vh;
+    cursor: pointer;
+    }
+    
+    .next {
+    border: 30px solid transparent;
+    border-left: 30px solid rgb(121, 121, 121);
+    border-radius: 30px;
+    right: 2vw;
+    }
+    
+    .prev {
+    border: 30px solid transparent;
+    border-right: 30px solid rgb(121, 121, 121);
+    border-radius: 30px;
+    left: 4vw;
+    }
+
+
                         /* ----------------------------- FIN ESPACE MEMBRE ----------------------------- */
 
 
@@ -1195,6 +1286,25 @@ footer{
         margin-top: 15px;
         margin-left: 5em;
     }
+
+    /* ----------- Début du Carrousel ----------- */
+
+    .container{
+        top: 7vh;
+    }
+
+    .next, .prev {
+        top: 43.5vh;
+        }
+
+    .next {
+        right: 0;
+    }
+
+    .prev {
+        left: 2vw;
+        }
+    
 }
 
 
@@ -1323,7 +1433,27 @@ footer{
     .contact_info{
         width: 50%;
     }
+
+    /* ----------- Début du Carrousel ----------- */
+
+    .container{
+        top: 19vh;
+    }
+
+    .next, .prev {
+        top: 80vh;
+        }
+
+    .next {
+        right: 2vw;
+    }
+
+    .prev {
+        left: 4vw;
+    }
+    
 }
+
 
 
 @media screen and (min-width: 1536px){
@@ -1756,10 +1886,9 @@ footer{
 }
 
                         /* ----------------------------- FIN ESPACE MEMBRE ----------------------------- */
+
 }
     /* FIN DU RESPONSIVE 1024 */
-
-
 
 @media screen and (min-width: 1920px){
 
@@ -1871,6 +2000,30 @@ footer{
 
     .formulaire #inscription{
         height: 7vh;
+    }
+
+    /* ---------- Maison et Appartement ---------- */
+
+    .container_page_biens{
+        margin-top: 80px;
+    }
+
+    /* ----------- Début du Carrousel ----------- */
+
+    .container{
+        top: 25vh;
+    }
+
+    .next, .prev {
+        top: 70h; 
+    }
+
+    .next {
+        right: 0;
+    }
+
+    .prev {
+        left: 2vw;
     }
 }
 
