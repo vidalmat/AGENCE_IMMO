@@ -1526,11 +1526,11 @@ footer{
     }
 
     .text_gris2{
-        top: 0;
+        top: -3vh;
     }
 
     .text_vert2{
-        top: -2;
+        top: -5.5vh;
     }
 
     .band_selection1, .band_selection2{
@@ -1834,6 +1834,15 @@ footer{
         height: 4.5vh;
         top: 48px;
     }
+
+    .text_gris2{
+        top: 0;
+    }
+
+    .text_vert2{
+        top: -2vh;
+    }
+
 
     /* ------------------------------------ Début footer -----------------------------------------------*/
 
