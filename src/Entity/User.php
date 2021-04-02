@@ -38,26 +38,6 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $nom;
-
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $prenom;
-
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $adresse;
-
-    /**
-     * @ORM\Column(type="string", length=13)
-     */
-    private $tel;
-
-    /**
      * @ORM\OneToMany(targetEntity=Message::class, mappedBy="users")
      */
     private $message;
@@ -71,6 +51,11 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity=User::class, mappedBy="users")
      */
     private $rdv;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Agent::class, mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $agent;
 
     public function __construct()
     {
@@ -159,54 +144,6 @@ class User implements UserInterface
         // $this->plainPassword = null;
     }
 
-    public function getNom(): ?string
-    {
-        return $this->nom;
-    }
-
-    public function setNom(string $nom): self
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    public function getPrenom(): ?string
-    {
-        return $this->prenom;
-    }
-
-    public function setPrenom(string $prenom): self
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function getAdresse(): ?string
-    {
-        return $this->adresse;
-    }
-
-    public function setAdresse(string $adresse): self
-    {
-        $this->adresse = $adresse;
-
-        return $this;
-    }
-
-    public function getTel(): ?string
-    {
-        return $this->tel;
-    }
-
-    public function setTel(string $tel): self
-    {
-        $this->tel = $tel;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Message[]
      */
@@ -275,6 +212,23 @@ class User implements UserInterface
                 $rdv->setUsers(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAgent(): ?Agent
+    {
+        return $this->agent;
+    }
+
+    public function setAgent(Agent $agent): self
+    {
+        // set the owning side of the relation if necessary
+        if ($agent->getUser() !== $this) {
+            $agent->setUser($this);
+        }
+
+        $this->agent = $agent;
 
         return $this;
     }
