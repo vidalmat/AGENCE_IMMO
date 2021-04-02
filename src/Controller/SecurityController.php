@@ -15,7 +15,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class SecurityController extends AbstractController
 {
     /**
-     * @Route("/formulaire", name="app_login")
+     * @Route("/app_login", name="app_login")
      */
     public function login(AuthenticationUtils $authenticationUtils, UserPasswordEncoderInterface $encoder, Request $request, ObjectManager $manager): Response
     {
@@ -24,17 +24,28 @@ class SecurityController extends AbstractController
         // }
         $user = new User();
 
-        $userform = $this->createForm(UserType::class, $user, [
-            "action" => $this->generateUrl("add_user"),
-            "method" => "post",
-        ]);
+        // $userform = $this->createForm(UserType::class, $user, [
+        //     "action" => $this->generateUrl("add_user"),
+        //     "method" => "post",
+        // ]);
+
+        $userform = $this->createFormBuilder($user)
+                     ->setAction($this->generateUrl("add_user"))
+                     ->add("nom")
+                     ->add("prenom")
+                     ->add("adresse")
+                     ->add("tel")
+                     ->add("email")
+                     ->add("password")
+                     ->getForm();
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('security/login.html.twig',
+         ["user_form" => $userform->createView(), 'last_username' => $lastUsername, 'error' => $error]);
     }
 
     /**
@@ -47,7 +58,7 @@ class SecurityController extends AbstractController
 
 
     /**
-     * @Route("/formulaire", name="add_user")
+     * @Route("/add_user", name="add_user")
      */
     public function addUser(UserPasswordEncoderInterface $encoder, Request $request, ObjectManager $manager): Response
     {
@@ -57,19 +68,30 @@ class SecurityController extends AbstractController
 
         $user = new User();
 
-        $userform = $this->createForm(UserType::class, $user, [
-            "action" => $this->generateUrl("formUser"),
-            "method" => "post",
-        ]);
+        // $userform = $this->createForm(UserType::class, $user, [
+        //     "action" => $this->generateUrl("add_user"),
+        //     "method" => "POST",
+            
+        // ]);
 
-        $user = new User();
+        $userform = $this->createFormBuilder($user)
+                     ->setAction($this->generateUrl("add_user"))
+                     ->add("nom")
+                     ->add("prenom")
+                     ->add("adresse")
+                     ->add("tel")
+                     ->add("email")
+                     ->add("password")
+                     ->getForm();
+
+
         $userform->handleRequest($request);
 
         if($userform->isSubmitted() && $userform->isValid()) {
 
-            $user->setPassword($encoder->encodePassword($user, $request->request->get("password")));
             $user->setRoles(["ROLE_USER"]);
             $user->setEmail($request->request->get("email"));
+            $user->setPassword($encoder->encodePassword($user, $request->request->get("password")));
             $manager->persist($user);
             dump($user);
             $manager->flush();

@@ -21,26 +21,26 @@ class FormulaireController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/ajoutUser", name="ajoutUser")
-     */
-    public function newForm(Request $request, ObjectManager $manager){
+    // /**
+    //  * @Route("/ajoutUser", name="ajoutUser")
+    //  */
+    // public function newForm(Request $request, ObjectManager $manager){
 
-        $user = new User();
+    //     $user = new User();
 
-        $form = $this->createFormBuilder($user)
-                     ->add("nom")
-                     ->add("prenom")
-                     ->add("adresse")
-                     ->add("tel")
-                     ->add("email")
-                     ->add("password")
-                     ->getForm();
+    //     $form = $this->createFormBuilder($user)
+    //                  ->add("nom")
+    //                  ->add("prenom")
+    //                  ->add("adresse")
+    //                  ->add("tel")
+    //                  ->add("email")
+    //                  ->add("password")
+    //                  ->getForm();
 
 
 
-        return $this->render("formulaire/index.html.twig", [
-            "formUser" => $form->createView()
-        ]);
-    }
+    //     return $this->render("formulaire/index.html.twig", [
+    //         "formUser" => $form->createView()
+    //     ]);
+    // }
 }
