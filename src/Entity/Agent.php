@@ -45,6 +45,11 @@ class Agent
      */
     private $clients;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Rdv::class, inversedBy="Agent")
+     */
+    private $rdv;
+
     public function __construct()
     {
         $this->clients = new ArrayCollection();
@@ -129,6 +134,18 @@ class Agent
                 $client->setAgent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getRdv(): ?Rdv
+    {
+        return $this->rdv;
+    }
+
+    public function setRdv(?Rdv $rdv): self
+    {
+        $this->rdv = $rdv;
 
         return $this;
     }

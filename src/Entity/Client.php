@@ -47,6 +47,11 @@ class Client
      */
     private $agent;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Rdv::class, inversedBy="user")
+     */
+    private $rdv;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +125,18 @@ class Client
     public function setAgent(?Agent $agent): self
     {
         $this->agent = $agent;
+
+        return $this;
+    }
+
+    public function getRdv(): ?Rdv
+    {
+        return $this->rdv;
+    }
+
+    public function setRdv(?Rdv $rdv): self
+    {
+        $this->rdv = $rdv;
 
         return $this;
     }
