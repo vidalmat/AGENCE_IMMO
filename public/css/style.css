@@ -952,9 +952,22 @@ footer{
 }
 
 .titre{
-    margin-left: 20px;
+    height: 20vh;
+    padding-left: 40px;
+    margin: 0;
+    margin-bottom: 30px;
     padding-top: 20px;
     color: rgb(63, 63, 63);
+    background: #e9f5fd;
+}
+
+.titre h1{
+    position: relative;
+    top: -25px;
+}
+
+.titre h1:first-child{
+    color: #96bf0d;
 }
 
 .titre .descriptif_vert:last-child{
@@ -1547,7 +1560,7 @@ footer{
 
     .conteneur3 .video, .bien, .alerte_mail{
         width: 18%;
-        margin-left: 20em;
+        margin-left: 22.8em;
         margin-top: 28px;
     }
 
