@@ -899,6 +899,7 @@ footer{
 }
 
 .formulaire{
+    background: white;
     border: 1px solid rgb(197, 197, 197);
     width: 60%;
     height: 30vh;
@@ -932,6 +933,7 @@ footer{
 }
 
 .formulaire input{
+    background: white;
     border: none;
     width: 85%;
     margin-left: 20px;
