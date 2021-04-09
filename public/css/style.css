@@ -1303,7 +1303,7 @@ footer{
     }
 
     .next, .prev {
-        top: 43.5vh;
+        top: 50.5vh;
         }
 
     .next {
@@ -1450,7 +1450,7 @@ footer{
     }
 
     .next, .prev {
-        top: 80vh;
+        top: 75vh;
         }
 
     .next {
@@ -1803,6 +1803,13 @@ footer{
 
     /* ------------------------------ Page Appartement / Maison -----------------------------*/
 
+/* Carrousel */
+.next, .prev {
+    top: 84vh;
+    }
+
+/* FIN Carrousel */
+
 .container_page_biens{
     display: flex;
 }
@@ -2015,6 +2022,10 @@ footer{
 
     .container_page_biens{
         margin-top: 80px;
+    }
+
+    .titre{
+        height: 16vh;
     }
 
     /* ----------- Début du Carrousel ----------- */
