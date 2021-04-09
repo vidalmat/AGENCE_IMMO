@@ -21,6 +21,8 @@ security:
             guard:
                 authenticators:
                     - App\Security\DefaultAuthenticator
+            form_login: 
+                default_target_path: espacemembre
             logout:
                 path: app_logout
                 # where to redirect after logout

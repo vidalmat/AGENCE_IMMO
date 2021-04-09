@@ -3,34 +3,43 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('add_user') }}">Logout</a>
+<section>
+    <p class="fildar">Immo-Dev / <a href="{{path("home")}}">accueil /</a><span class="span"> connexion</span></p>
+    <div class="conteneur_connexion">
+        <div class="connexion">
+            <p class="parconnexion">Vous tentez d'accéder à un contenu qui nécessite que vous soyez connecté(e).</p>
+            <h1><img src="images/fleche_bas.png" alt="fleche bas">Se connecter</h1>
+            <form action="{{path("app_login")}}" method="POST" class="bloc_connexion">
+                <input type="email" placeholder="Email" name="email" required>
+                <input type="password" placeholder="Mot de passe" name="password" required >
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <input type="hidden" name="_target_path" value="{{ path('espacemembre') }}"/>
+                <input type="submit" id='submit' value='LOGIN' >
+            </form>
         </div>
-    {% endif %}
-
-    {{ form_start(userForm) }}
-    {{ form_widget(userForm) }}
-    {{ form_end(userForm) }}
-
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
+        <span class="span2"></span>
+        <div class="creation_compte">
+            <h2>Vous n'avez pas de compte?</h2>
+            <button class="switchbutton" type="button">Créer un compte</button>
         </div>
-    #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+    </div>
+    <div id="form_button">
+        <div class="conteneur_form">
+            <div class="formulaire">
+                <form action="{{path("add_user")}}" method="POST">
+                    <input type="text" placeholder="Nom" name="nom" id="nom">
+                    <input type="text" placeholder="Prénom" name="prenom" id="prenom">
+                    <input type="text" placeholder="Adresse" name="adresse" id="adresse">
+                    <input type="number" placeholder="Téléphone" name="tel" id="telephone">
+                    <input type="text" placeholder="Email" name="email" id="mail">
+                    <input type="password" placeholder="Mot de passe" name="password" required >
+                    <input type="submit" value="S'inscrire" id="inscription">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/button_showform.js"></script><!-- utilisation de js pour faire apparaître le formulaire -->
+</section>
 {% endblock %}
+
