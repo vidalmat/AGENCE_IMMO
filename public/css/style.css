@@ -1106,6 +1106,16 @@ footer{
     box-shadow: 2px 5px 10px 5px rgb(185, 185, 185);
 }
 
+.bloc_espace_membre img{
+    width: 25%;
+    margin-top: 12vh;
+}
+
+.bloc_espace_membre p{
+    position: relative;
+    top: -30vh;
+}
+
 
 /* ----------------------------- DÉBUT DU CAROUSSEL ----------------------------- */
 
@@ -1453,7 +1463,7 @@ footer{
     }
     
     .sidebar li{
-        list-style-type: none;
+        color: white;
     }
     
     .sidebar a{
