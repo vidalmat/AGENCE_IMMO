@@ -52,6 +52,16 @@ class Client
      */
     private $rdv;
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $ville;
+
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $cp;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +147,30 @@ class Client
     public function setRdv(?Rdv $rdv): self
     {
         $this->rdv = $rdv;
+
+        return $this;
+    }
+
+    public function getVille(): ?string
+    {
+        return $this->ville;
+    }
+
+    public function setVille(string $ville): self
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getCp(): ?string
+    {
+        return $this->cp;
+    }
+
+    public function setCp(string $cp): self
+    {
+        $this->cp = $cp;
 
         return $this;
     }

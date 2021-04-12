@@ -906,7 +906,7 @@ footer{
     margin-left: auto;
     margin-right: auto;
     margin-top: -30px;
-    margin-bottom: 70px;
+    margin-bottom: 20vh;
     border-radius: 7px;
     padding-top: 35px;
     color: #8a8a92;
@@ -1192,6 +1192,24 @@ footer{
     left: 4vw;
     }
 
+    #modale{
+        display: none;
+        position: absolute;
+        width: 90vw;
+        height: calc(90vw * 16 / 9);
+        z-index: 1000;
+        left: 5vw;
+        top: 5vh;
+    }
+
+    #modale img{
+        width: 100%;
+    }
+
+    .close_btn{
+        position: absolute;
+        right: 10px;
+    }
 
                         /* ----------------------------- FIN ESPACE MEMBRE ----------------------------- */
 
@@ -1425,6 +1443,13 @@ footer{
         background: #063453;
         width: 25%;
         margin-top: -2px;
+    }
+
+    .sidebar p{
+        color: white;
+        position: relative;
+        left: 18vw;
+        bottom: 49px;
     }
     
     .sidebar li{

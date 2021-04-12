@@ -65,7 +65,7 @@ class SecurityController extends AbstractController
     /**
      * @Route("/add_user", name="add_user")
      */
-    public function addUser(UserPasswordEncoderInterface $encoder, Request $request, ObjectManager $manager)
+    public function addUser(UserPasswordEncoderInterface $encoder, Request $request, ObjectManager $manager): Response
     {
         // if ($this->getUser()) {
         //     return $this->redirectToRoute('target_path');
@@ -105,6 +105,8 @@ class SecurityController extends AbstractController
             $client->setNom($request->request->get("nom"));
             $client->setPrenom($request->request->get("prenom"));
             $client->setAdresse($request->request->get("adresse"));
+            $client->setVille($request->request->get("ville"));
+            $client->setCp($request->request->get("cp"));
             $client->setTel($request->request->get("tel"));
             $client->setUser($user);
 

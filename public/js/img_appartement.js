@@ -86,3 +86,16 @@ prev.addEventListener("click", function () {
 next.addEventListener("click", function () {
     rotate(-deg);
 });
+
+
+
+var items = document.getElementsByClassName("items");
+for(var it of items) {
+  it.addEventListener("click", function(e) {
+
+    console.log(e.target);
+    var modale = document.getElementById("modale");
+    modale.style.display = "block";
+    modale.appendChild(e.target);
+  })
+}
