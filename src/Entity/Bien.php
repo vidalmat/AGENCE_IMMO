@@ -148,17 +148,5 @@ class Bien
         return $this;
     }
 
-    public function getCat�gorie(): ?bool
-    {
-        return $this->cat�gorie;
-    }
-
-    public function setCat�gorie(bool $cat�gorie): self
-    {
-        $this->cat�gorie = $cat�gorie;
-
-        return $this;
-    }
-
    
 }
