@@ -1072,7 +1072,7 @@ footer{
                         /* ----------------------------- Page ESPACE MEMBRE ----------------------------- */
 
 .container_espace_membre{
-    background: rgb(241, 234, 255);
+    background: rgb(245, 255, 234);
 }
 
 .sidebar{
@@ -1226,10 +1226,6 @@ footer{
 
 /* ----------------------------- CALENDRIER ----------------------------- */
 
-    #calendrier{
-        width: 80%;
-        margin: auto;
-    }
 
 /* ----------------------------- FIN CALENDRIER ----------------------------- */
 

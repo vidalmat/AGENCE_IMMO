@@ -5,9 +5,9 @@
 {% block body %}
 
 <section>
-    <p class="fildar">Immo-Dev / <a href=""{{path("home")}}"">accueil /</a><span class="span"> page-bien</span></p>
+    <p class="fildar">Immo-Dev / <a href="{{path("home")}}">accueil /</a><span class="span"> page-bien</span></p>
     <h1>Espace Bien</h1>
-    <form action="index.php?route=insert_bien" method="POST" enctype="multipart/form-data">
+    <form action="{{path("add_bien")}}" method="POST" enctype="multipart/form-data">
         <select name="categorie" id="">
             <option value="1">Vente</option>
             <option value="2">Location</option>
@@ -24,6 +24,8 @@
             <th>Image</th>
             <th>Nom</th>
             <th>Adresse</th>
+            <th>Ville</th>
+            <th>Code Postal</th>
             <th>Prix</th>
             <th>Action</th>
         </tr>

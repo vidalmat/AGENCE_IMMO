@@ -35,6 +35,8 @@ class AppFixtures extends Fixture
         $bien->setnom("Le bien du nom de" . $i)
             ->setPrix($i)
             ->setAdresse("L'adresse :" . $i)
+            ->setVille("La ville :" . $i)
+            ->setCp("Code postal :" . $i)
             ->setImage("abcd");
             $manager->persist($bien);
         }
