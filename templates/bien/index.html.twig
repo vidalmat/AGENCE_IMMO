@@ -7,13 +7,15 @@
 <section>
     <p class="fildar">Immo-Dev / <a href="{{path("home")}}">accueil /</a><span class="span"> page-bien</span></p>
     <h1>Espace Bien</h1>
-    <form action="{{path("add_bien")}}" method="POST" enctype="multipart/form-data">
+    <form action="{{path("add_bien")}}" method="POST">
         <select name="categorie" id="">
             <option value="1">Vente</option>
             <option value="2">Location</option>
         </select>
         <input type="text" placeholder="Nom" name="nom" id="nom">
         <input type="text" placeholder="Adresse" name="adresse" id="adresse">
+        <input type="text" placeholder="Ville" name="ville" id="ville">
+        <input type="text" placeholder="Code Postal" name="cp" id="cp">
         <input type="text" placeholder="Prix" name="prix" id="prix">
         <input type="file" name="image">
         <input type="submit" value="Ajouter un bien" id="ajout_bien">

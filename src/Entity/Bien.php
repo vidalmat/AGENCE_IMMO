@@ -55,7 +55,7 @@ class Bien
     /**
      * @ORM\Column(type="boolean")
      */
-    private $catégorie;
+    private $catï¿½gorie;
 
     
 
@@ -148,14 +148,14 @@ class Bien
         return $this;
     }
 
-    public function getCatégorie(): ?bool
+    public function getCatï¿½gorie(): ?bool
     {
-        return $this->catégorie;
+        return $this->catï¿½gorie;
     }
 
-    public function setCatégorie(bool $catégorie): self
+    public function setCatï¿½gorie(bool $catï¿½gorie): self
     {
-        $this->catégorie = $catégorie;
+        $this->catï¿½gorie = $catï¿½gorie;
 
         return $this;
     }

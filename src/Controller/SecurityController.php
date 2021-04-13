@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Bien;
 use App\Entity\User;
 use App\Entity\Agent;
 use App\Entity\Client;
@@ -124,31 +123,5 @@ class SecurityController extends AbstractController
         dump($request->request);
         return $this->redirectToRoute("app_login");
     }
-
-
-
-
-    public function addBien(Request $request, ObjectManager $manager): Response
-    {
-        // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
-        // }
-
-        $bien = new Bien();
-
-            // $bien->setRoles(["ROLE_USER"]);
-            $bien->setImage($request->request->get("image"));
-            $bien->setNom($request->request->get("nom"));
-            $bien->setPrix($request->request->get("prix"));
-            $bien->setAdresse($request->request->get("adresse"));
-            $bien->setVille($request->request->get("ville"));
-            $bien->setCp($request->request->get("cp"));
-
-            $manager->persist($bien);
-            dump($bien);
-        
-
-        dump($request->request);
-        return $this->redirectToRoute("app_add_bien");
-    }
+    
 }
