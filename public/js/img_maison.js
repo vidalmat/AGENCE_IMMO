@@ -1,10 +1,10 @@
 var carousel = document.querySelector('.carousel');
 var images = [
-  {nom: "maison.jpg", alt:"", desc:""},
-  {nom: "maison2.jpg", alt:"", desc:""},
-  {nom: "maison3.jpg", alt:"", desc:""},
-  {nom: "maison4.jpg", alt:"", desc:""},
-  {nom: "maison5.jpg", alt:"", desc:""},
+  {nom: "maison.jpg", alt:"maison", desc:""},
+  {nom: "maison2.jpg", alt:"maison2", desc:""},
+  {nom: "maison3.jpg", alt:"maison3", desc:""},
+  {nom: "maison4.jpg", alt:"maison4", desc:""},
+  {nom: "maison5.jpg", alt:"maison5", desc:""},
 ];
 
 var html = "";

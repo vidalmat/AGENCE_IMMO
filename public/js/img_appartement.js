@@ -1,9 +1,9 @@
 var carousel = document.querySelector('.carousel');
 var images = [
-  {nom: "appartement.jpg", alt:"", desc:""},
-  {nom: "appartement2.jpg", alt:"", desc:""},
-  {nom: "appartement3.jpg", alt:"", desc:""},
-  {nom: "appartement4.jpg", alt:"", desc:""},
+  {nom: "appartement.jpg", alt:"appartement", desc:""},
+  {nom: "appartement2.jpg", alt:"appartement2", desc:""},
+  {nom: "appartement3.jpg", alt:"appartement3", desc:""},
+  {nom: "appartement4.jpg", alt:"appartement4", desc:""},
 ];
 
 var html = "";
