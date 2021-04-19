@@ -1,10 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Agenda{% endblock %}
+{% block title %}Calendrier{% endblock %}
 
+{% block stylesheets %}
+
+{% endblock %}
 
 {% block body %}
 <p class="fildar">abri-nature-immobilier / <a href="{{path("home")}}">accueil /</a><span class="span"> rdv</span></p>
 
+<div id="calendrier"></div>
 
+{% endblock %}
+
+{% block javascripts %}
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendrier');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+              initialView: 'dayGridMonth',
+              locale:"fr",
+              timeZone:"Europe/Paris",
+              headerToolbar: {
+                start: "prev,next today",
+                center: "title",
+                end:"dayGridMonth,timeGridWeek"
+              }
+            });
+            calendar.render();
+          });
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.min.js" 
+    integrity="sha256-ekrJn2FeZaiUFq99QswpQCUTME/HxaDfX7R8INzKJGE=" crossorigin="anonymous"></script>
+    
 {% endblock %}

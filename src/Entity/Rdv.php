@@ -39,6 +39,36 @@ class Rdv
      */
     private $Agent;
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $titre;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $debut;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $fin;
+
+    /**
+     * @ORM\Column(type="string", length=7)
+     */
+    private $fond;
+
+    /**
+     * @ORM\Column(type="string", length=7)
+     */
+    private $bordure;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $couleur_texte;
+
     public function __construct()
     {
         $this->user = new ArrayCollection();
@@ -130,6 +160,78 @@ class Rdv
                 $agent->setRdv(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(string $titre): self
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    public function getDebut(): ?\DateTimeInterface
+    {
+        return $this->debut;
+    }
+
+    public function setDebut(\DateTimeInterface $debut): self
+    {
+        $this->debut = $debut;
+
+        return $this;
+    }
+
+    public function getFin(): ?\DateTimeInterface
+    {
+        return $this->fin;
+    }
+
+    public function setFin(\DateTimeInterface $fin): self
+    {
+        $this->fin = $fin;
+
+        return $this;
+    }
+
+    public function getFond(): ?string
+    {
+        return $this->fond;
+    }
+
+    public function setFond(string $fond): self
+    {
+        $this->fond = $fond;
+
+        return $this;
+    }
+
+    public function getBordure(): ?string
+    {
+        return $this->bordure;
+    }
+
+    public function setBordure(string $bordure): self
+    {
+        $this->bordure = $bordure;
+
+        return $this;
+    }
+
+    public function getCouleurTexte(): ?string
+    {
+        return $this->couleur_texte;
+    }
+
+    public function setCouleurTexte(string $couleur_texte): self
+    {
+        $this->couleur_texte = $couleur_texte;
 
         return $this;
     }
