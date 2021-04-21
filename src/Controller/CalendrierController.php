@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CalendrierController extends AbstractController
 {
     /**
-     * @Route("/", name="calendrier", methods={"GET"})
+     * @Route("", name="calendrier", methods={"GET"})
      */
     public function index(CalendrierRepository $calendrierRepository): Response
     {

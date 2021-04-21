@@ -23,12 +23,12 @@ class AppFixtures extends Fixture
             $manager->persist($cat);
         }
 
-        for($i = 0; $i < 3; $i++) {
-            $rdv = new Rdv();
-            $rdv->setDate(new DateTime("now", new DateTimeZone("europe/paris")))
-                ->setMotif("Pour une visite " . $i);
-            $manager->persist($rdv);
-        }
+        // for($i = 0; $i < 3; $i++) {
+        //     $rdv = new Rdv();
+        //     $rdv->setDate(new DateTime("now", new DateTimeZone("europe/paris")))
+        //         ->setMotif("Pour une visite " . $i);
+        //     $manager->persist($rdv);
+        // }
 
         for($i = 0; $i < 5; $i++) {
             $bien=new Bien();
