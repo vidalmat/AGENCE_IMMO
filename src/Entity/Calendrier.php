@@ -157,4 +157,5 @@ class Calendrier
 
         return $this;
     }
+
 }
