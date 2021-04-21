@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Calendrier{% endblock %}
+
+{% block body %}
+    <h1>Calendrier</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ calendrier.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ calendrier.titre }}</td>
+            </tr>
+            <tr>
+                <th>Debut</th>
+                <td>{{ calendrier.debut ? calendrier.debut|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Fin</th>
+                <td>{{ calendrier.fin ? calendrier.fin|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ calendrier.description }}</td>
+            </tr>
+            <tr>
+                <th>Journee</th>
+                <td>{{ calendrier.journee ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Couleur_fond</th>
+                <td>{{ calendrier.couleurFond }}</td>
+            </tr>
+            <tr>
+                <th>Couleur_bordure</th>
+                <td>{{ calendrier.couleurBordure }}</td>
+            </tr>
+            <tr>
+                <th>Couleur_texte</th>
+                <td>{{ calendrier.couleurTexte }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('calendrier') }}">Retour à la liste</a>
+
+    <a href="{{ path('calendrier_edit', {'id': calendrier.id}) }}">Modifier</a>
+
+    {{ include('calendrier/_delete_form.html.twig') }}
+{% endblock %}

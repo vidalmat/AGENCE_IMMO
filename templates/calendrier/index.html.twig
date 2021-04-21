@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Calendrier{% endblock %}
+
+{% block body %}
+    <h1>Calendrier</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Numéro</th>
+                <th>Titre</th>
+                <th>Début</th>
+                <th>Fin</th>
+                <th>Description</th>
+                <th>Journée</th>
+                <th>Fond</th>
+                <th>Bordure</th>
+                <th>Texte</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for calendrier in calendriers %}
+            <tr>
+                <td>{{ calendrier.id }}</td>
+                <td>{{ calendrier.titre }}</td>
+                <td>{{ calendrier.debut ? calendrier.debut|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ calendrier.fin ? calendrier.fin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ calendrier.description }}</td>
+                <td>{{ calendrier.journee ? 'Oui' : 'Non' }}</td>
+                <td>{{ calendrier.couleurFond }}</td>
+                <td>{{ calendrier.couleurBordure }}</td>
+                <td>{{ calendrier.couleurTexte }}</td>
+                <td>
+                    <a href="{{ path('calendrier_show', {'id': calendrier.id}) }}">voir</a>
+                    <a href="{{ path('calendrier_edit', {'id': calendrier.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">Aucun Rdv de trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('calendrier_new') }}">Nouveau Rdv</a>
+{% endblock %}
