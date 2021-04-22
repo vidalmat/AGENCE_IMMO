@@ -12,9 +12,9 @@ class RdvController extends AbstractController
     /**
      * @Route("/rdv", name="rdv")
      */
-    public function index(CalendrierRepository $calendrier): Response
+    public function index(CalendrierRepository $calendar): Response
     {
-        $events = $calendrier->findAll();
+        $events = $calendar->findAll();
 
         $rdvs = []; // mettre ma variable sous forme de tableau
 
