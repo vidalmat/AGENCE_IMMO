@@ -55,17 +55,36 @@ class RdvController extends AbstractController
         //je concatène aussi “w” (ouvre le fichier en écriture seulement, 
         //crée le fichier s'il n'existe pas sauf que les données contenues précédemment seront effacées)
         $handle = fopen("datas/rdvs.json", "w");
-    
+
         // $json réencodera mon tableau au format JSON
         $json = json_encode($rdvs);
         //var_dump($json);
-    
-        // J'écris (fwrite()) mes deux variables ($handle et $json) devenues une chaîne JSON dans mon fichier rdvs.json.
+
+        // J'écris (fwrite()) mes deux variables ($handle et $json) devenues une chaîne JSON dans mon fichier livres.json.
         fwrite($handle, $json);
+
         // Je ferme (fclose()) mon fichier de ma variable $handle.
         fclose($handle);
 
         return $this->render('rdv/index.html.twig', compact("data")); // compact crée un tableau à partir des variables et de la valeur de data
+    }
+
+
+    static function getRdvs(): array {
+
+        // Je crée une variable $contenu qui sera égale à → si le fichier existe dans mon dossier datas et fichier JSON,
+        // alors, récupère le dans ce même fichier
+        $contenu = (file_exists("datas/rdvs.json"))? file_get_contents("datas/rdvs.json") : "";
+        //var_dump($contenu);
+
+        // $livre correspondra à → à décoder (json_decode()) mon fichier JSON en tableau PHP
+        $rdvs = json_decode($contenu);
+        //var_dump($rdvs);
+
+        // Si $rdvs est un tableau, alors tu l'insères dans celui-ci([]).
+        $rdvs = (is_array($rdvs))? $rdvs : [];
+        
+        return $rdvs;
     }
 
 }

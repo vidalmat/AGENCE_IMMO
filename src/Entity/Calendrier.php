@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CalendrierRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -56,6 +58,17 @@ class Calendrier
      * @ORM\Column(type="string", length=7)
      */
     private $couleur_texte;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="calendriers")
+     */
+    private $Client;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Agent::class, inversedBy="calendriers")
+     */
+    private $Agent;
+
 
     public function getId(): ?int
     {
@@ -154,6 +167,30 @@ class Calendrier
     public function setCouleurTexte(string $couleur_texte): self
     {
         $this->couleur_texte = $couleur_texte;
+
+        return $this;
+    }
+
+    public function getClient(): ?Client
+    {
+        return $this->Client;
+    }
+
+    public function setClient(?Client $Client): self
+    {
+        $this->Client = $Client;
+
+        return $this;
+    }
+
+    public function getAgent(): ?Agent
+    {
+        return $this->Agent;
+    }
+
+    public function setAgent(?Agent $Agent): self
+    {
+        $this->Agent = $Agent;
 
         return $this;
     }

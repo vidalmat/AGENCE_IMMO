@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ClientRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -61,6 +63,16 @@ class Client
      * @ORM\Column(type="string", length=10)
      */
     private $cp;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Calendrier::class, mappedBy="Client")
+     */
+    private $calendriers;
+
+    public function __construct()
+    {
+        $this->calendriers = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -171,6 +183,36 @@ class Client
     public function setCp(string $cp): self
     {
         $this->cp = $cp;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Calendrier[]
+     */
+    public function getCalendriers(): Collection
+    {
+        return $this->calendriers;
+    }
+
+    public function addCalendrier(Calendrier $calendrier): self
+    {
+        if (!$this->calendriers->contains($calendrier)) {
+            $this->calendriers[] = $calendrier;
+            $calendrier->setClient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCalendrier(Calendrier $calendrier): self
+    {
+        if ($this->calendriers->removeElement($calendrier)) {
+            // set the owning side to null (unless already changed)
+            if ($calendrier->getClient() === $this) {
+                $calendrier->setClient(null);
+            }
+        }
 
         return $this;
     }

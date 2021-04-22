@@ -50,9 +50,20 @@ class Agent
      */
     private $rdv;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Calendrier::class, inversedBy="Agent")
+     */
+    private $calendrier;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Calendrier::class, mappedBy="Agent")
+     */
+    private $calendriers;
+
     public function __construct()
     {
         $this->clients = new ArrayCollection();
+        $this->calendriers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -146,6 +157,48 @@ class Agent
     public function setRdv(?Rdv $rdv): self
     {
         $this->rdv = $rdv;
+
+        return $this;
+    }
+
+    public function getCalendrier(): ?Calendrier
+    {
+        return $this->calendrier;
+    }
+
+    public function setCalendrier(?Calendrier $calendrier): self
+    {
+        $this->calendrier = $calendrier;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Calendrier[]
+     */
+    public function getCalendriers(): Collection
+    {
+        return $this->calendriers;
+    }
+
+    public function addCalendrier(Calendrier $calendrier): self
+    {
+        if (!$this->calendriers->contains($calendrier)) {
+            $this->calendriers[] = $calendrier;
+            $calendrier->setAgent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCalendrier(Calendrier $calendrier): self
+    {
+        if ($this->calendriers->removeElement($calendrier)) {
+            // set the owning side to null (unless already changed)
+            if ($calendrier->getAgent() === $this) {
+                $calendrier->setAgent(null);
+            }
+        }
 
         return $this;
     }
