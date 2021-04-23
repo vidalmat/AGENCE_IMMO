@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Biens{% endblock %}
+
+{% block body %}
+    <p class="fildar">Immo-Dev / <a href="{{path("home")}}">accueil /</a><span class="span"> bien</span></p>
+    <h1>Biens</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Référence</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Ville</th>
+                <th>Cp</th>
+                <th>Prix</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bien in biens %}
+            <tr>
+                <td>{{ bien.id }}</td>
+                <td>{{ bien.nom }}</td>
+                <td>{{ bien.adresse }}</td>
+                <td>{{ bien.ville }}</td>
+                <td>{{ bien.cp }}</td>
+                <td>{{ bien.prix }} €</td>
+                <td>
+                    <a href="{{ path('biens_show', {'id': bien.id}) }}">Voir</a>
+                    <a href="{{ path('biens_edit', {'id': bien.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('biens_new') }}">Ajouter un nouveau bien</a>
+{% endblock %}

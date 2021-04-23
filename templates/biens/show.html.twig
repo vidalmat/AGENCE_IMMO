@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Biens{% endblock %}
+
+{% block body %}
+    <p class="fildar">Immo-Dev / <a href="{{path("home")}}">accueil /</a><span class="span"> modifier-bien</span></p>
+    <h1>Biens</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ bien.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ bien.nom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ bien.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ bien.ville }}</td>
+            </tr>
+            <tr>
+                <th>Cp</th>
+                <td>{{ bien.cp }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ bien.prix }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('biens_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('biens_edit', {'id': bien.id}) }}">Modifier</a>
+
+    {{ include('biens/_delete_form.html.twig') }}
+{% endblock %}

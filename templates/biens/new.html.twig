@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Biens{% endblock %}
+
+{% block body %}
+    <p class="fildar">Immo-Dev / <a href="{{path("home")}}">accueil /</a><span class="span"> nouveau-bien</span></p>
+    <h1>Créer un nouveau bien</h1>
+
+    {{ include('biens/_form.html.twig') }}
+
+    <a href="{{ path('biens_index') }}">Retour à la liste</a>
+{% endblock %}
