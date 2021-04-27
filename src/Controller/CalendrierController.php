@@ -49,7 +49,7 @@ class CalendrierController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="calendrier_show", methods={"GET"})
+     * @Route("../{id}", name="calendrier_show", methods={"GET"})
      */
     public function show(Calendrier $calendrier): Response
     {

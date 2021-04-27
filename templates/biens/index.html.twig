@@ -1,9 +1,13 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="../css/style.css">
+{% endblock %}
+
 {% block title %}Biens{% endblock %}
 
 {% block body %}
-    <p class="fildar">Immo-Dev / <a href="{{path("home")}}">accueil /</a><span class="span"> bien</span></p>
+    <p class="fildar">Immo-Dev / <a href="{{path("home")}}">accueil /</a><span class="span"> biens</span></p>
     <h1>Biens</h1>
 
     <table class="table">

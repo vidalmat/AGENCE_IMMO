@@ -2,27 +2,26 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
+        {% block stylesheets %}
         <link rel="stylesheet" href="css/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% endblock %}
         <title>{% block title %}Agence Immobiliere{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
         
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
     </head>
 
     <body>
     <header>
         <div class="conteneur1">
             <div class="logo_header">
-                <a href="{{path("home")}}"><img src="images/logo.png" alt="logo"></a>
+                <a href="{{path("home")}}"><img src="../images/logo.png" alt="logo"></a>
             </div>
             <div class="nav_user">
                 <nav>
                     <ul>
-                        <li class="favoris"><img src="images/coeur_vert.png" alt="coeur" >favoris</li>
+                        <li class="favoris"><img src="../images/coeur_vert.png" alt="coeur" >favoris</li>
                         <li class="mon_compte"><a href="{{path("app_login")}}">Mon compte</a></li>
                     </ul>
                 </nav>
@@ -61,7 +60,7 @@
             <!-- ------------ Conteneur 6 ------------- -->
         <div class="conteneur6">
             <div class="logo_footer">
-                <a href="{{path("home")}}"><img src="images/logob&w.png" alt="logo_footer"></a>
+                <a href="{{path("home")}}"><img src="../images/logob&w.png" alt="logo_footer"></a>
             </div>
             <div class="bloc_text_footer">
                 <div class="par1">
@@ -89,8 +88,8 @@
         <div class="par3">
             <div class="bloc_applistore">
                 <p>Retrouvez nous sur :</p>
-                <img src="images/logo_apple.png" alt="logo_apple" id="apple">
-                <img src="images/logo_playstore.png" alt="logo_playstore" id="google">
+                <img src="../images/logo_apple.png" alt="logo_apple" id="apple">
+                <img src="../images/logo_playstore.png" alt="logo_playstore" id="google">
             </div>
         </div>
                     <!-- ------------ Conteneur 7 ------------- -->
