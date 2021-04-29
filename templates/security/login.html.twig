@@ -14,7 +14,11 @@
                 <input type="email" placeholder="Email" name="email" required>
                 <input type="password" placeholder="Mot de passe" name="password" required >
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                <input type="hidden" name="_target_path" value="{{ path('espacemembre') }}"/>
+                {% if is_granted('ROLE_ADMIN') %}
+                <input type="hidden" name="_target_path" value="{{ path('espaceagent') }}"/>
+                {% else %}
+                <input type="hidden" name="_target_path" value="{{ path('espacmembre') }}"/>
+                {% endif %}
                 <input type="submit" id='submit' value='LOGIN' >
             </form>
         </div>
@@ -44,4 +48,3 @@
     <script src="js/button_showform.js"></script><!-- utilisation de js pour faire apparaître le formulaire -->
 </section>
 {% endblock %}
-

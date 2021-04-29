@@ -28,21 +28,6 @@ class SecurityController extends AbstractController
         $user = new User();
         $client = new Client();
 
-        // $userform = $this->createForm(UserType::class, $user, [
-        //     "action" => $this->generateUrl("add_user"),
-        //     "method" => "post",
-        // ]);
-
-        // $userform = $this->createFormBuilder($client)
-        //              ->setAction($this->generateUrl("add_user"))
-        //              ->add("nom")
-        //              ->add("prenom")
-        //              ->add("adresse")
-        //              ->add("tel")
-        //             //  ->add("email")
-        //             //  ->add("password")
-        //              ->getForm();
-
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user

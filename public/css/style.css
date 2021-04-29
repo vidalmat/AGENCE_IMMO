@@ -1224,6 +1224,52 @@ footer{
                         /* ----------------------------- FIN ESPACE MEMBRE ----------------------------- */
 
 
+/* ----------------------------- RDV ----------------------------- */        
+
+.calendar_show{
+  border: 1px solid red;
+  margin: auto;
+  margin-bottom: 5vh;
+  margin-top: 5vh;
+  width: 50%;
+}
+
+.calendar_show h1{
+  text-align: center;
+}
+
+.table{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table th{
+  width: 30%;
+  border: 1px solid gray;
+  line-height: 50px;
+  color: white;
+  background: rgb(42, 152, 225);
+}
+
+.table td{
+  padding-left: 1em;
+  border: 1px solid gray;
+  background: white;
+}
+
+.calendar_show a{
+  margin-left: auto;
+}
+
+.btn{
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* ----------------------------- FIN RDV ----------------------------- */
+
+
 /* ----------------------------- CALENDRIER ----------------------------- */
 
 #calendrier{

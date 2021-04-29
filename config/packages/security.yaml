@@ -39,5 +39,5 @@ security:
         - { path: ^/client, roles: ROLE_USER }
 
     role_hierarchy:
-        ROLE_EDITOR: ROLE_USER
+        ROLE_CLIENT: ROLE_USER
         ROLE_ADMIN: ROLE_AGENT
