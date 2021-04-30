@@ -24,7 +24,7 @@ security:
             logout:
                 path: app_logout
                 # where to redirect after logout
-                target: home
+                target: app_login
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -35,8 +35,8 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/agent, roles: ROLE_AGENT }
-        - { path: ^/client, roles: ROLE_USER }
+        - { path: ^/espaceagent, roles: ROLE_AGENT }
+        - { path: ^/espacemembre, roles: ROLE_USER }
 
     role_hierarchy:
         ROLE_CLIENT: ROLE_USER

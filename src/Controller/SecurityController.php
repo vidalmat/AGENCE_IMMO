@@ -21,8 +21,10 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils, UserPasswordEncoderInterface $encoder, Request $request, ObjectManager $manager): Response
     {
-        // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
+        // if ($this->getUser("ROLE_ADMIN")) {
+        //     return $this->redirectToRoute('espaceagent');
+        // }else{
+        //     return $this->redirectToRoute('espacemembre');
         // }
         
         $user = new User();
