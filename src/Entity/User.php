@@ -42,10 +42,7 @@ class User implements UserInterface
      */
     private $message;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="rdv")
-     */
-    private $users;
+
 
     /**
      * @ORM\OneToMany(targetEntity=User::class, mappedBy="users")
@@ -174,17 +171,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getUsers(): ?self
-    {
-        return $this->users;
-    }
-
-    public function setUsers(?self $users): self
-    {
-        $this->users = $users;
-
-        return $this;
-    }
 
     /**
      * @return Collection|self[]
@@ -198,7 +184,7 @@ class User implements UserInterface
     {
         if (!$this->rdv->contains($rdv)) {
             $this->rdv[] = $rdv;
-            $rdv->setUsers($this);
+            //$rdv->setUsers($this);
         }
 
         return $this;
@@ -208,9 +194,9 @@ class User implements UserInterface
     {
         if ($this->rdv->removeElement($rdv)) {
             // set the owning side to null (unless already changed)
-            if ($rdv->getUsers() === $this) {
-                $rdv->setUsers(null);
-            }
+           // if ($rdv->getUsers() === $this) {
+           //     $rdv->setUsers(null);
+            //}
         }
 
         return $this;

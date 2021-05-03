@@ -24,15 +24,15 @@ class RdvController extends AbstractController
         foreach($events as $event){
             $rdvs[] = [ // fabrication de mon tableau avec les informations attendus par mon calendrier
                 "id" => $event->getId(),
-                "debut" => $event->getDebut()->format("Y-m-d H:i:s"), // format : avec le datetime, format est sous forme de chaîne 
+                "start" => $event->getDebut()->format("Y-m-d H:i:s"), // format : avec le datetime, format est sous forme de chaîne 
                 // de caractère, je récupère donc entre les (), la date au format texte 
-                "fin" => $event->getFin()->format("Y-m-d H:i:s"),
-                "titre" => $event->getTitre(),
+                "end" => $event->getFin()->format("Y-m-d H:i:s"),
+                "title" => $event->getTitre(),
                 "description" => $event->getDescription(),
                 "journee" => $event->getJournee(),
-                "couleur_fond" => $event->getCouleurFond(),
+                "color" => $event->getCouleurFond(),
                 "couleur_bordure" => $event->getCouleurBordure(),
-                "couleur_texte" => $event->getCouleurTexte(),
+                "textColor" => $event->getCouleurTexte(),
             ];
         }
 

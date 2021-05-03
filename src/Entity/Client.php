@@ -216,4 +216,15 @@ class Client
 
         return $this;
     }
+
+    public function setData(Array $array): self
+    {
+        $this->setNom($array['nom']);
+        $this->setPrenom($array['prenom']);
+        $this->setAdresse($array['adresse']);
+        $this->setVille($array['ville']);
+        $this->setCp($array['cp']);
+        $this->setTel($array['tel']);
+        return $this;
+    }
 }

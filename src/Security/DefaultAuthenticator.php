@@ -90,16 +90,17 @@ class DefaultAuthenticator extends AbstractFormLoginAuthenticator implements Pas
         return $credentials['password'];
     }
 
+    
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey)
     {
+        /*
         if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
             return new RedirectResponse($targetPath);
-        }
+        }*/
 
-        // For example : return new RedirectResponse($this->urlGenerator->generate('some_route'));
-        // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__); 
-        return new RedirectResponse($this->urlGenerator->generate('espacemembre'));
-        
+        $espace =($token->getUser()->getRoles()[0] == 'ROLE_ADMIN') ? 'espaceagent' : 'espacemembre';
+
+        return new RedirectResponse($this->urlGenerator->generate($espace));
     }
 
     protected function getLoginUrl()

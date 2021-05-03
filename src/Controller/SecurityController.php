@@ -21,12 +21,6 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils, UserPasswordEncoderInterface $encoder, Request $request, ObjectManager $manager): Response
     {
-        // if ($this->getUser("ROLE_ADMIN")) {
-        //     return $this->redirectToRoute('espaceagent');
-        // }else{
-        //     return $this->redirectToRoute('espacemembre');
-        // }
-        
         $user = new User();
         $client = new Client();
 
@@ -58,55 +52,25 @@ class SecurityController extends AbstractController
         //     return $this->redirectToRoute('target_path');
         // }
 
-        $user = new User();
+        $user = new User(); 
         $client = new Client();
-        $agent = new Agent();
 
-        // $userform = $this->createForm(UserType::class, $user, [
-        //     "action" => $this->generateUrl("add_user"),
-        //     "method" => "POST",
-            
-        // ]);
+        $user->setRoles(["ROLE_USER"]);
+        $user->setEmail($request->request->get("email"));
+        $user->setPassword($encoder->encodePassword($user, $request->request->get("password")));
+        $manager->persist($user);
+        dump($user);
 
-        // $userform = $this->createFormBuilder($user)
-        //              ->setAction($this->generateUrl("add_user"))
-        //              ->add("nom")
-        //              ->add("prenom")
-        //              ->add("adresse")
-        //              ->add("tel")
-        //              ->add("email")
-        //              ->add("password")
-        //              ->getForm();
-
-
-        // $userform->handleRequest($request);
-
-        // if($userform->isSubmitted() && $userform->isValid()) {
-
-            $user->setRoles(["ROLE_USER"]);
-            $user->setEmail($request->request->get("email"));
-            $user->setPassword($encoder->encodePassword($user, $request->request->get("password")));
-            $manager->persist($user);
-            dump($user);
-
-            $client->setNom($request->request->get("nom"));
-            $client->setPrenom($request->request->get("prenom"));
-            $client->setAdresse($request->request->get("adresse"));
-            $client->setVille($request->request->get("ville"));
-            $client->setCp($request->request->get("cp"));
-            $client->setTel($request->request->get("tel"));
-            $client->setUser($user);
-
-            // $agent->setNom($request->request->get("nom"));
-            // $agent->setPrenom($request->request->get("prenom"));
-            // $agent->setTel($request->request->get("tel"));
-            // $agent->setUser($user);
-            // $manager->persist($agent);
-
-            $manager->persist($client);
-            $manager->flush();
         
+        $client->setData($request->request->all());
+        $client->setUser($user);
 
+        
+        
+        $manager->persist($client);
+        $manager->flush();
+        
+       
         dump($request->request);
         return $this->redirectToRoute("app_login");
     }
