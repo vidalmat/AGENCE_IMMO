@@ -6,39 +6,27 @@
 
 <section>
     <p class="fildar">abri-nature-immobilier / <a href="{{path("home")}}">accueil /</a><span class="span"> mon espace agent</span></p>
-    <form action="index.php?route=insert_bien" method="POST" enctype="multipart/form-data">
-        <select name="categorie" id="">
-            <option value="1">Vente</option>
-            <option value="2">Location</option>
-        </select>
-        <input type="text" placeholder="Nom" name="nom" id="nom">
-        <input type="text" placeholder="Adresse" name="adresse" id="adresse">
-        <input type="text" placeholder="Prix" name="prix" id="prix">
-        <input type="file" name="image">
-        <input type="submit" value="Ajouter un bien" id="ajout_bien">
-    </form>
 
-    <!--Affichage des biens-->
-    <?php $biens = $toTemplate["biens"];?>
-
-    <table>
-        <tr>
-            <th>Image</th>
-            <th>Nom</th>
-            <th>Adresse</th>
-            <th>Prix</th>
-            <th>Action</th>
-        </tr>
-        <?php foreach($biens as $bien): ?>
-        <tr>
-        <td><img width="120" src="upload/<?= $bien["image"] ?>" alt="image"></td>
-        <td><?= $bien["nom"] ?></td>
-        <td><?= $bien["adresse"] ?></td>
-        <td><?= $bien["prix"] ?></td>
-        <td>Modifier | <a href="index.php?route=sup_bien&id_bien=<?= $bien["id_bien"] ?>"> Supprimer</a></td>
-        </tr>
-        <?php endforeach ?>
-    </table>
-    <a href="{{path("app_logout")}}"><p>Déconnexion</p></a>
+    <div class="container_espace_membre">
+        <div class="sidebar">
+            <p>Agent : {{ app.user.email }}</p>
+            {# {{ dump(app.user) }} #}
+                <li><a href="{{path("home")}}">Accueil</a></li>
+                <li><a href="#">Messages</a></li>
+                <li><a href="{{path("rdv")}}">Rdv</a></li>
+                <li><a href="{{path("biens_index")}}">Biens</a></li>
+                <li><a href="{{path("calendrier")}}">Visites</a></li>
+                <li><a href="{{path("app_logout")}}">Déconnexion</a></li>
+            </ul>
+        </div>
+        <div class="bloc_espace_membre">
+            <a href="{{path("home")}}"><img src="../images/logo_espace_client/home.png"><p>Accueil</p></a>
+            <a href="#"><img src="../images/logo_espace_client/logo_message.png"><p>Messages</p></a>
+            <a href="{{path("rdv")}}"><img src="../images/logo_espace_client/logo_rdv.png"><p>Rdv</p></a>
+            <a href="{{path("biens_index")}}"><img src="../images/logo_espace_client/etoile.png"><p>Biens</p></a>
+            <a href="{{path("calendrier")}}"><img src="../images/logo_espace_client/gps.png"><p>Visites</p></a>
+            <a href="{{path("app_logout")}}"><img src="../images/logo_espace_client/logo_deconnexion.png"><p>Déconnexion</p></a>
+        </div>
+    </div>
 </section>
 {% endblock %}

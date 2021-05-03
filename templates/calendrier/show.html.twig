@@ -53,10 +53,12 @@
         </tbody>
     </table>
 
-    <a href="{{ path('calendrier') }}" >Retour à la liste</a>
+    <div class="lien">
+        <a href="{{ path('calendrier') }}" >Retour à la liste</a>
 
-    <a href="{{ path('calendrier_edit', {'id': calendrier.id}) }}" >Modifier</a>
+        <a href="{{ path('calendrier_edit', {'id': calendrier.id}) }}" >Modifier</a>
 
-    {{ include('calendrier/_delete_form.html.twig') }}
+        {{ include('calendrier/_delete_form.html.twig') }}
+    </div>
 </div>
 {% endblock %}

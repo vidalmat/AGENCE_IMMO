@@ -39,9 +39,11 @@
         </tbody>
     </table>
 
-    <a href="{{ path('biens_index') }}">Retour à la liste</a>
+    <div class="lien">
+        <a href="{{ path('biens_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('biens_edit', {'id': bien.id}) }}">Modifier</a>
+        <a href="{{ path('biens_edit', {'id': bien.id}) }}">Modifier</a>
 
-    {{ include('biens/_delete_form.html.twig') }}
+        {{ include('biens/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

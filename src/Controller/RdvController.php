@@ -29,9 +29,9 @@ class RdvController extends AbstractController
                 "end" => $event->getFin()->format("Y-m-d H:i:s"),
                 "title" => $event->getTitre(),
                 "description" => $event->getDescription(),
-                "journee" => $event->getJournee(),
-                "color" => $event->getCouleurFond(),
-                "couleur_bordure" => $event->getCouleurBordure(),
+                "allDay" => $event->getJournee(),
+                "backgroundColor" => $event->getCouleurFond(),
+                "borderColor" => $event->getCouleurBordure(),
                 "textColor" => $event->getCouleurTexte(),
             ];
         }
@@ -41,7 +41,7 @@ class RdvController extends AbstractController
         // Je crée une variable $contenu qui sera égale à → si le fichier existe dans mon dossier datas et fichier JSON,
         // alors, récupère le contenu dans ce même fichier
         $contenu = (file_exists("datas/rdvs.json"))? file_get_contents("datas/rdvs.json") : "";
-        //var_dump($contenu);
+        //dump($contenu);
     
         // Si $rdvs est un tableau, alors tu l'insères dans celui-ci([]).
         $rdvs = (is_array($rdvs))? $rdvs : [];
@@ -49,7 +49,7 @@ class RdvController extends AbstractController
         // $rdv aura ses propriétés retournées avec get_object_vars(), 
         // car $this ne peut pas être encoder avec un json_encode, c'est obligatoire
         $rdv = get_object_vars($this);
-        //var_dump($rdv);
+        //dump($rdv);
     
         // Je crée une nouvelle variable ($handle), qui ouvrira mon fichier JSON(rdv.json) dans mon dossier datas, 
         //je concatène aussi “w” (ouvre le fichier en écriture seulement, 
@@ -58,7 +58,7 @@ class RdvController extends AbstractController
 
         // $json réencodera mon tableau au format JSON
         $json = json_encode($rdvs);
-        //var_dump($json);
+        //dump($json);
 
         // J'écris (fwrite()) mes deux variables ($handle et $json) devenues une chaîne JSON dans mon fichier livres.json.
         fwrite($handle, $json);

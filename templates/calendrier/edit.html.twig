@@ -10,9 +10,11 @@
 <p class="fildar">Immo-Dev / <a href="{{path("home")}}">accueil /</a><span class="span"> modifier-rdv</span></p>
     <h1>Modifier Calendrier</h1>
 
-    {{ include('calendrier/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    <div class="lien">
+        {{ include('calendrier/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    <a href="{{ path('calendrier') }}">retour à la liste</a>
+        <a href="{{ path('calendrier') }}">retour à la liste</a>
 
-    {{ include('calendrier/_delete_form.html.twig') }}
+        {{ include('calendrier/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
