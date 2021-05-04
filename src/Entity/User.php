@@ -42,13 +42,6 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\OneToMany(targetEntity=Message::class, mappedBy="users")
-     */
-    private $message;
-
-
-
-    /**
      * @ORM\OneToMany(targetEntity=User::class, mappedBy="users")
      */
     private $rdv;
@@ -60,7 +53,6 @@ class User implements UserInterface
 
     public function __construct()
     {
-        $this->message = new ArrayCollection();
         $this->rdv = new ArrayCollection();
     }
 
@@ -144,37 +136,7 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
-
-    /**
-     * @return Collection|Message[]
-     */
-    public function getMessage(): Collection
-    {
-        return $this->message;
-    }
-
-    public function addMessage(Message $message): self
-    {
-        if (!$this->message->contains($message)) {
-            $this->message[] = $message;
-            $message->setUsers($this);
-        }
-
-        return $this;
-    }
-
-    public function removeMessage(Message $message): self
-    {
-        if ($this->message->removeElement($message)) {
-            // set the owning side to null (unless already changed)
-            if ($message->getUsers() === $this) {
-                $message->setUsers(null);
-            }
-        }
-
-        return $this;
-    }
-
+  
 
     /**
      * @return Collection|self[]
