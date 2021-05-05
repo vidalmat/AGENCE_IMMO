@@ -23,18 +23,6 @@ a{
     color: rgb(138, 136, 136);
 }
 
-/* header */
-
-/*#progress{
-	background-color: #839c49;
-	height: 3px;
-	width: 0;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 9999; /* Peut être important si vous avez un menu en position fixe */
-/*}*/
-
                             /* ------------ Conteneur 1 ------------- */
 
 .conteneur1{
@@ -1251,13 +1239,13 @@ footer{
 }
 
 .table td{
-  padding-left: 1em;
   border: 1px solid gray;
   background: white;
+  text-align: center;
 }
 
 .calendar_show a{
-  margin-left: auto;
+  width: 43%;
   margin-bottom: 20px;
 }
 
@@ -1269,13 +1257,14 @@ footer{
 
 /* ----------------------------- FIN RDV ----------------------------- */
 
+/* ----------------------------- Modification calendrier et biens ----------------------------- */
 .lien{
   display: flex;
   justify-content: center;
   margin-top: 3vh;
   margin-bottom: 5vh;
 }
-
+/* ----------------------------- FIN calendrier et biens ----------------------------- */
 
 /* ----------------------------- CALENDRIER ----------------------------- */
 
