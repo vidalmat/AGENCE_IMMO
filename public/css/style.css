@@ -65,7 +65,7 @@ a{
 }
 
 .logo_header img{
-    width: 70%;
+    width: 60%;
     margin: 10px;
 }
 
@@ -679,8 +679,8 @@ footer{
 }
 
 .conteneur6 .logo_footer img{
-    width: 45%;
-    margin-left: 10em;
+    width: 55%;
+    margin-left: 8.5em;
     margin-top: 3em;
     margin-bottom: 3em;
 }
@@ -2767,7 +2767,7 @@ A VERTICAL event
     /* ------------ Conteneur 6 ------------- */
 
     footer{
-        height: 33em;
+        height: 38em;
     }
 
     .conteneur6 .logo_footer{
@@ -2895,6 +2895,14 @@ A VERTICAL event
 
     /* ------------ Conteneur 6 ------------- */
 
+    .conteneur6{
+      margin-left: 5em;
+    }
+
+    .par3{
+      margin-left: 5em;
+    }
+
     .bloc_applistore{
         margin-left: 9.5em;
     }
@@ -2905,6 +2913,10 @@ A VERTICAL event
     
     .bloc_applistore #google{
         width: 14%;
+    }
+
+    .conteneur7{
+      margin-left: -4em;
     }
 
     /* ------------ Formulaire ------------- */
@@ -3227,7 +3239,7 @@ A VERTICAL event
     }
 
     .conteneur6 .logo_footer img{
-        width: 28%;
+        width: 30%;
     }
 
     .conteneur6 .logo_footer{
@@ -3237,11 +3249,15 @@ A VERTICAL event
     .bloc_text_footer{
         width: 100%;
         margin-top: 2.5em;
-        margin-left: -20em;
+        margin-left: -23.5em;
     }
 
     .conteneur6 .par2{
         width: 100%;
+    }
+
+    .par3{
+      margin-left: 0.9em;
     }
 
     .bloc_applistore{
