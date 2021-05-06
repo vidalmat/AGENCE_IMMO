@@ -24,9 +24,9 @@ class SecurityController extends AbstractController
         $user = new User();
         $client = new Client();
 
-        // get the login error if there is one
+        // Cette ligne correspond aux erreurs de connexions
         $error = $authenticationUtils->getLastAuthenticationError();
-        // last username entered by the user
+        // Dernier utilisateur gardé en mémoire
         $lastUsername = $authenticationUtils->getLastUsername();
 
         dump($request->request);
@@ -60,16 +60,12 @@ class SecurityController extends AbstractController
         $user->setPassword($encoder->encodePassword($user, $request->request->get("password")));
         $manager->persist($user);
         dump($user);
-
         
         $client->setData($request->request->all());
         $client->setUser($user);
 
-        
-        
         $manager->persist($client);
         $manager->flush();
-        
        
         dump($request->request);
         return $this->redirectToRoute("app_login");

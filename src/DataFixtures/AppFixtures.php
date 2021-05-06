@@ -3,7 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Rdv;
-use App\Entity\Bien;
+use App\Entity\Biens;
 use App\Entity\Categorie;
 use DateTime;
 use DateTimeZone;
@@ -31,13 +31,12 @@ class AppFixtures extends Fixture
         // }
 
         for($i = 0; $i < 5; $i++) {
-            $bien=new Bien();
+            $bien=new Biens();
         $bien->setnom("Le bien du nom de" . $i)
             ->setPrix($i)
             ->setAdresse("L'adresse :" . $i)
             ->setVille("La ville :" . $i)
-            ->setCp("Code postal :" . $i)
-            ->setImage("abcd");
+            ->setCp("Code postal :" . $i);
             $manager->persist($bien);
         }
 

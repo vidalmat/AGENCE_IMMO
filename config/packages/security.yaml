@@ -5,7 +5,7 @@ security:
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        # used to reload user from session & other features (e.g. switch_user)
+        # utilisé pour recharger un utilisateur pour une nouvelle session ou autre
         app_user_provider:
             entity:
                 class: App\Entity\User
@@ -23,7 +23,7 @@ security:
                     - App\Security\DefaultAuthenticator
             logout:
                 path: app_logout
-                # where to redirect after logout
+                # redirection après déconnexion
                 target: app_login
 
             # activate different ways to authenticate
@@ -33,11 +33,14 @@ security:
             # switch_user: true
 
     # Easy way to control access for large sections of your site
-    # Note: Only the *first* access control that matches will be used
+    # Définit les contrôles d'accès pour les rôles de l'espace agent
+    # et de l'espace membre
     access_control:
         - { path: ^/espaceagent, roles: ROLE_AGENT }
         - { path: ^/espacemembre, roles: ROLE_USER }
 
+    # Définit les rôles des clients et de ou des agents en tant 
+    # que user et admin
     role_hierarchy:
         ROLE_CLIENT: ROLE_USER
         ROLE_ADMIN: ROLE_AGENT
