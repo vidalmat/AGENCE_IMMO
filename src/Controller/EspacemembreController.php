@@ -13,8 +13,10 @@ class EspacemembreController extends AbstractController
      */
     public function index(): Response
     {
+        $user = $this->getUser();
         return $this->render('espacemembre/index.html.twig', [
             'controller_name' => 'EspacemembreController',
+            "user" => $user
         ]);
     }
 }

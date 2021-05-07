@@ -1,4 +1,4 @@
-.sm-col-1 { width: 8.33%; }
+/* .sm-col-1 { width: 8.33%; }
 .sm-col-2 { width: 16.66%; }
 .sm-col-3 { width: 25%;}
 .sm-col-4 { width: 33.33%;}
@@ -9,7 +9,9 @@
 .sm-col-9 { width: 75%;}
 .sm-col-10 { width: 83.33%;}
 .sm-col-11 { width: 91.66%;}
-.sm-col-12 { width: 100%; }
+.sm-col-12 { width: 100%; } */
+
+/* Pour Iphone 6 / 7 / 8 Plus */
 
 body{
     background: rgb(255, 252, 246);
@@ -1063,8 +1065,17 @@ footer{
     background: rgb(246, 248, 255);
 }
 
-.sidebar{
+
+.sidebar ul{
     display: none;
+}
+
+.sidebar p{
+  display: inline-block;
+  font-weight: bold;
+  margin: 0.5em;
+  color: rgb(138, 136, 136);
+  line-height: 5.2vh;
 }
 
 .bloc_espace_membre{
@@ -1072,6 +1083,7 @@ footer{
     flex-wrap: wrap;
     width: 85%;
     height: 100vh;
+    margin: auto;
     margin-top: 50px;
     margin-bottom: 50px;
     padding-top: 50px;
@@ -1253,6 +1265,7 @@ footer{
   display: flex;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 5em;
 }
 
 /* ----------------------------- FIN RDV ----------------------------- */
@@ -1264,6 +1277,50 @@ footer{
   margin-top: 3vh;
   margin-bottom: 5vh;
 }
+
+.lien_modifier{
+  margin: auto;
+  margin-top: -15vh;
+  width: 70%;
+}
+
+.lien_modifier label{
+  display: inline-block;
+  height: 6vh;
+  width: 100%;
+  padding: 0;
+  background: rgb(42, 152, 225);
+  color: white;
+  text-align: center;
+  font-size: 2em;
+  line-height: 5.5vh;
+}
+
+.lien_modifier input{
+  width: 100%;
+  height: 10vh;
+  padding: 0;
+  color: rgb(138, 136, 136);
+  text-align: center;
+  font-size: 1.5em;
+  border: none;
+}
+
+.lien_modifier a{
+  text-align: center;
+}
+
+.lien_modifier h1{
+  position: relative;
+  top: 20vh;
+  height: 8vh;
+  text-align: center;
+  margin-bottom: 20vh;
+  background: #96bf0d;
+  color: white;
+  line-height: 8vh;
+  font-size: 1.8em;
+}
 /* ----------------------------- FIN calendrier et biens ----------------------------- */
 
 /* ----------------------------- CALENDRIER ----------------------------- */
@@ -1273,6 +1330,12 @@ footer{
     margin: auto;
     margin-bottom: 50px;
 }
+
+.fc-direction-ltr .fc-toolbar > * > :not(:first-child){
+  margin-left: .25em;
+}
+
+
 
 /* classes attached to <body> */
 
@@ -1556,9 +1619,9 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     border-bottom-left-radius: 0;
   }
 .fc .fc-toolbar {
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; */
   }
 .fc .fc-toolbar.fc-header-toolbar {
     margin-bottom: 1.5em;
@@ -1567,11 +1630,13 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
     margin-top: 1.5em;
   }
 .fc .fc-toolbar-title {
+    color: rgb(138, 136, 136);
     font-size: 1.75em;
     margin: 0;
+    text-transform: capitalize;
   }
 .fc-direction-ltr .fc-toolbar > * > :not(:first-child) {
-    margin-left: .75em; /* space between */
+    margin-left: 0; /* space between 
   }
 .fc-direction-rtl .fc-toolbar > * > :not(:first-child) {
     margin-right: .75em; /* space between */
@@ -2710,6 +2775,7 @@ A VERTICAL event
 
 /* ----------------------------------------------> RESPONSIVE <---------------------------------------------- */
 
+/* Pour Ipad à l'italienne */
 @media screen and (min-width: 768px){
 
     #cadre_estimer{
@@ -2825,10 +2891,22 @@ A VERTICAL event
     .prev {
         left: 2vw;
         }
+
+    /* ----------- Calendrier ----------- */
+
+    .fc-direction-ltr .fc-toolbar > * > :not(:first-child) {
+      margin-left: 0.75em;
+    }
+
+    .fc .fc-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     
 }
 
-
+/* Pour Ipad paysage */
 @media screen and (min-width: 1024px){
 
     .hamburger{
@@ -2944,32 +3022,43 @@ A VERTICAL event
     }
     
     .sidebar{
-        display: block;
         background: #063453;
         width: 25%;
         margin-top: -2px;
     }
 
+    .sidebar ul{
+      display: block;
+    }
+
     .sidebar p{
         color: white;
         position: relative;
-        left: 18vw;
+        left: 23vw;
         bottom: 49px;
     }
     
     .sidebar li{
-        color: white;
+      color: white;
     }
     
     .sidebar a{
-        display: inline-block;
-        color: white;
-        padding: 15px;
-        font-size: 1.6em;
+      display: inline-block;
+      color: white;
+      padding: 15px;
+      font-size: 1.6em;
     }
 
     .sidebar a:hover{
         text-decoration: underline;
+    }
+
+    .bloc_espace_membre img{
+      margin-top: 4vh;
+    }
+
+    .bloc_espace_membre p{
+      top: -17vh;
     }
 
     /* ------------------------------ Page Appartement / Maison -----------------------------*/
@@ -2999,7 +3088,7 @@ A VERTICAL event
 }
 
 
-
+/* Pour écran 15 pouces */
 @media screen and (min-width: 1536px){
 
     /* annulation du burger */
@@ -3440,11 +3529,20 @@ A VERTICAL event
     line-height: 32vh;
 }
 
+.bloc_espace_membre img{
+  margin-top: 12vh;
+}
+
+.bloc_espace_membre p{
+  top: -30vh;
+}
+
                         /* ----------------------------- FIN ESPACE MEMBRE ----------------------------- */
 
 }
     /* FIN DU RESPONSIVE 1024 */
 
+/* Pour écran 27 pouces */
 @media screen and (min-width: 1920px){
 
                              /* ------------ Conteneur 2 ------------- */

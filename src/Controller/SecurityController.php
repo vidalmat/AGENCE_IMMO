@@ -21,9 +21,6 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils, UserPasswordEncoderInterface $encoder, Request $request, ObjectManager $manager): Response
     {
-        $user = new User();
-        $client = new Client();
-
         // Cette ligne correspond aux erreurs de connexions
         $error = $authenticationUtils->getLastAuthenticationError();
         // Dernier utilisateur gardé en mémoire

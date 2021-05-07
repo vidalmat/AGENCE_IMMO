@@ -59,7 +59,8 @@ class CalendrierController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="calendrier_edit", methods={"GET","POST"})
+     * requirements va dire que le id correspondra à un nombre et rien de plus
+     * @Route("/{id}/edit", name="calendrier_edit", methods={"GET","POST"}, requirements ={"id"="\d+"})
      */
     public function edit(Request $request, Calendrier $calendrier): Response
     {

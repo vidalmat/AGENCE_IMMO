@@ -13,8 +13,10 @@ class EspaceagentController extends AbstractController
      */
     public function index(): Response
     {
+        $user = $this->getUser();
         return $this->render('espaceagent/index.html.twig', [
             'controller_name' => 'EspaceagentController',
+            "user" => $user
         ]);
     }
 }

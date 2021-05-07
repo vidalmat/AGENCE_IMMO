@@ -10,6 +10,7 @@
         <div class="sidebar">
             <p>Client : {{ app.user.email }}</p>
             {# {{ dump(app.user) }} #}
+            <ul>
                 <li><a href="{{path("home")}}">Accueil</a></li>
                 <li><a href="#">Messages</a></li>
                 <li><a href="{{path("rdv")}}">Rdv</a></li>

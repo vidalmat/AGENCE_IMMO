@@ -8,9 +8,10 @@
 
 {% block body %}
     <p class="fildar">Immo-Dev / <a href="{{path("home")}}">accueil /</a><span class="span"> modifier-bien</span></p>
-    <h1>Modifier les biens</h1>
+    
 
-    <div class="lien">
+    <div class="lien_modifier">
+        <h1>MODIFIER LES BIENS</h1>
         {{ include('biens/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
         <a href="{{ path('biens_index') }}">Retour à la liste</a>
