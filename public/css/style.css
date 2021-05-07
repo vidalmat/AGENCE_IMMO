@@ -802,6 +802,10 @@ footer{
     font-weight: bold;
 }
 
+.fildar a{
+  color: #0e71b4;
+}
+
 .conteneur_connexion{
     display: flex;
     flex-direction: column;
