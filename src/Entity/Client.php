@@ -6,6 +6,7 @@ use App\Repository\ClientRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ClientRepository::class)
@@ -21,21 +22,44 @@ class Client
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @ORM\JoinColumn(nullable=false)
+     * @Assert\Regex(
+     *      pattern = "/^[\w+/]+$/i",
+     *      htmlPattern = "[a-zA-Z-àâäéèêëïîôöùûüçñÀÂÄÉÈËÏÔÖÙÛÜŸÇÑæœÆŒ'( )]{1,50}+"
+     * )
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotNull()
+     *  @Assert\Regex(
+     *      pattern = "/^[\w+/]+$/i",
+     *      htmlPattern = "[a-zA-Z-àâäéèêëïîôöùûüçñÀÂÄÉÈËÏÔÖÙÛÜŸÇÑæœÆŒ'( )]{1,50}+"
+     * )
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotNull()
+     * @Assert\Regex(
+     *      pattern = "/^[\w+/]+$/i",
+     *      htmlPattern = "[a-zA-Z-àâäéèêëïîôöùûüçñÀÂÄÉÈËÏÔÖÙÛÜŸÇÑæœÆŒ'( )]{1,50}+"
+     * )
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="string", length=20)
+     * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotNull()
+     * @Assert\Regex(
+     *      pattern = "/^[\d+/]+$/i",
+     *      htmlPattern = "[a-zA-Z-àâäéèêëïîôöùûüçñÀÂÄÉÈËÏÔÖÙÛÜŸÇÑæœÆŒ'( )]{1,50}+"
+     * )
      */
     private $tel;
 
@@ -56,11 +80,30 @@ class Client
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotNull()
+     * @Assert\Regex(
+     *      pattern = "/^[\w+/]+$/i",
+     *      htmlPattern = "[a-zA-Z-àâäéèêëïîôöùûüçñÀÂÄÉÈËÏÔÖÙÛÜŸÇÑæœÆŒ'( )]{1,50}+"
+     * )
      */
     private $ville;
 
     /**
      * @ORM\Column(type="string", length=10)
+     * @ORM\JoinColumn(nullable=false)
+     *  @Assert\NotNull()
+     *  @Assert\Length(
+     *      min = 5,
+     *      max = 5,
+     *      minMessage = "Vous n'avez pas rentré le nombre suffisant",
+     *      maxMessage = "Vous n'avez pas rentré le nombre suffisant",
+     * )
+     * @Assert\Regex(
+     *      pattern = "/^[\d+/]+$/i",
+     *      htmlPattern = "[a-zA-Z-àâäéèêëïîôöùûüçñÀÂÄÉÈËÏÔÖÙÛÜŸÇÑæœÆŒ'( )]{1,50}+"
+     * )
+     * 
      */
     private $cp;
 
