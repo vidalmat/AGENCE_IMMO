@@ -1270,7 +1270,7 @@ footer{
 
 /* ----------------------------- FIN RDV ----------------------------- */
 
-/* ----------------------------- Modification calendrier et biens ----------------------------- */
+/* ----------------------------- Affichage Modification biens ----------------------------- */
 .lien{
   display: flex;
   justify-content: center;
@@ -1321,7 +1321,55 @@ footer{
   line-height: 8vh;
   font-size: 1.8em;
 }
-/* ----------------------------- FIN calendrier et biens ----------------------------- */
+
+/* ----------------------------- Fin Affichage Modification biens ----------------------------- */
+
+/* ----------------------------- Affichage Modification Calendrier ----------------------------- */
+
+
+.lien_modifier_calendrier{
+  margin: auto;
+  width: 70%;
+}
+
+.lien_modifier_calendrier label{
+  display: inline-block;
+  height: 6vh;
+  width: 100%;
+  padding: 0;
+  background: rgb(42, 152, 225);
+  color: white;
+  text-align: center;
+  font-size: 2em;
+  line-height: 5.5vh;
+}
+
+.lien_modifier_calendrier input{
+  width: 100%;
+  height: 10vh;
+  padding: 0;
+  color: rgb(138, 136, 136);
+  text-align: center;
+  font-size: 1.5em;
+  border: none;
+}
+
+.lien_modifier_calendrier a{
+  text-align: center;
+}
+
+.lien_modifier_calendrier h1{
+  position: relative;
+  top: 20vh;
+  height: 8vh;
+  text-align: center;
+  margin-bottom: 20vh;
+  background: #96bf0d;
+  color: white;
+  line-height: 8vh;
+  font-size: 1.8em;
+}
+/* ----------------------------- Fin Affichage Modification Calendrier ----------------------------- */
 
 /* ----------------------------- CALENDRIER ----------------------------- */
 
@@ -2903,7 +2951,6 @@ A VERTICAL event
       justify-content: space-between;
       align-items: center;
     }
-    
 }
 
 /* Pour Ipad paysage */
@@ -3514,6 +3561,10 @@ A VERTICAL event
 
 .sidebar{
     width: 18%;
+}
+
+.sidebar p{
+  margin-left: -4em;
 }
 
 .bloc_espace_membre{

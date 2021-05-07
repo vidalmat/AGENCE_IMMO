@@ -7,10 +7,10 @@
 {% block title %}Modifier Calendrier{% endblock %}
 
 {% block body %}
-<p class="fildar">Immo-Dev / <a href="{{path("home")}}">accueil /</a><span class="span"> modifier-rdv</span></p>
+<p class="fildar">Immo-Dev / <a href="{{path("home")}}">accueil /</a><a href="{{path("espacemembre")}}"> mon compte /</a><span class="span"> modifier-rdv</span></p>
     <h1>Modifier Calendrier</h1>
 
-    <div class="lien_modifier">
+    <div class="lien_modifier_calendrier">
         {{ include('calendrier/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
         <a href="{{ path('calendrier') }}">retour à la liste</a>
