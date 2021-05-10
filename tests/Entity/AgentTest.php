@@ -13,42 +13,97 @@ class AgentTest extends KernelTestCase
 {
     protected $validator;
 
-    // public function fonctionTest(array $test) {
+    public function getAgentEntity(): Agent{
 
-    //     $agent = (new Agent);
-    //     $test = array(
-    //     $agent->setNom('aaaa'),
-    //     $agent->setPrenom('aaaa'),
-    //     $agent->setTel('aaaa')
-    //     );
+        $roles[] = 'ROLE_USER';
 
-    //     // $roles[] = 'ROLE_USER';
+        $user = (new User)
+            ->setEmail('aaaa')
+            ->setRoles($roles)
+            ->setPassword('aaaa');
 
-    //     // $user = (new User)
-    //     //     ->setEmail('aaaa')
-    //     //     ->setRoles($roles)
-    //     //     ->setPassword('aaaa');
+        $client = (new Client)
+            ->setNom('aaaa')
+            ->setPrenom('aaaa')
+            ->setAdresse('aaaa')
+            ->setTel('aaaa')
+            ->setVille('aaaa')
+            ->setCp('aaaa');
 
-    //     // $client = (new Client)
-    //     //     ->setNom('aaaa')
-    //     //     ->setPrenom('aaaa')
-    //     //     ->setAdresse('aaaa')
-    //     //     ->setTel('aaaa')
-    //     //     ->setVille('aaaa')
-    //     //     ->setCp('aaaa');
+        $rdv = (new Rdv);
 
-    //     // $rdv = (new Rdv);
+        $calendrier = (new Calendrier)
+            ->setTitre('aaaa')
+            ->setDebut(new \DateTime()) // Pour la valeur en DateTime
+            ->setFin(new \DateTime())  // Pour la valeur en DateTime
+            ->setDescription('aaaa')
+            ->setJournee('aaaa')
+            ->setCouleurFond('aaaa')
+            ->setCouleurBordure('aaaa')
+            ->setCouleurTexte('aaaa');
 
-    //     // $calendrier = (new Calendrier)
-    //     //     ->setTitre('aaaa')
-    //     //     ->setDebut(new \DateTime()) // Pour la valeur en DateTime
-    //     //     ->setFin(new \DateTime())  // Pour la valeur en DateTime
-    //     //     ->setDescription('aaaa')
-    //     //     ->setJournee('aaaa')
-    //     //     ->setCouleurFond('aaaa')
-    //     //     ->setCouleurBordure('aaaa')
-    //     //     ->setCouleurTexte('aaaa');
-        
+        return (new Agent)
+            ->setNom('aaaa')
+            ->setPrenom('aaaa')
+            ->setTel('aaaa')
+            ->addClient($client)
+            ->setUser($user)
+            ->addCalendrier($calendrier)
+            ->setRdv($rdv);
+
+    }
+
+    public function setUp(): void{
+
+        $kernel = self::bootKernel();
+
+        $this->validator = self::$container->get('validator');
+    }
+
+    public function testEntityAgent(): void{
+
+        $error = $this->validator->validate($this->getAgentEntity());
+
+        $this->assertInstanceOf(Agent::class, $this->getAgentEntity()->setNom(''));
+        $this->assertCount(0, $error);
+    }
+
+
+                      // ----------------- EXEMPLES DU CODES SANS L'AVOIR RÉDUIT ----------------------
+
+    // public function testAgent(): void
+    // {
+    //     $agent = (new Agent)
+    //         ->setNom('aaaa')
+    //         ->setPrenom('aaaa')
+    //         ->setTel('aaaa');
+
+    //     $roles[] = 'ROLE_USER';
+
+    //     $user = (new User)
+    //         ->setEmail('aaaa')
+    //         ->setRoles($roles)
+    //         ->setPassword('aaaa');
+
+    //     $client = (new Client)
+    //         ->setNom('aaaa')
+    //         ->setPrenom('aaaa')
+    //         ->setAdresse('aaaa')
+    //         ->setTel('aaaa')
+    //         ->setVille('aaaa')
+    //         ->setCp('aaaa');
+
+    //     $rdv = (new Rdv);
+
+    //     $calendrier = (new Calendrier)
+    //         ->setTitre('aaaa')
+    //         ->setDebut(new \DateTime()) // Pour la valeur en DateTime
+    //         ->setFin(new \DateTime())  // Pour la valeur en DateTime
+    //         ->setDescription('aaaa')
+    //         ->setJournee('aaaa')
+    //         ->setCouleurFond('aaaa')
+    //         ->setCouleurBordure('aaaa')
+    //         ->setCouleurTexte('aaaa');
 
     //     $kernel = self::bootKernel();
 
@@ -57,157 +112,104 @@ class AgentTest extends KernelTestCase
     //     $error = $this->validator->validate($agent);
 
     //     $this->assertInstanceOf(Agent::class, $agent);
-
-    //     return($test);
-    // }
-
-    // public function unitTest($agent, $error, $test){
-
-    //     $this->fonctionTest($test);
-    //     $this->assertInstanceOf(Agent::class, $agent);
     //     $this->assertCount(0, $error);
 
+    //     // $this->assertTrue(true);
     // }
 
-    public function testAgent(): void
-    {
-        $agent = (new Agent)
-            ->setNom('aaaa')
-            ->setPrenom('aaaa')
-            ->setTel('aaaa');
 
-        $roles[] = 'ROLE_USER';
+    // public function testAgentnameIsNotBlank(): void // test pour vérifier que le champs du nom de l'agent n'est pas vide
+    // {
+    //     $agent = (new Agent)
+    //         ->setNom('')
+    //         ->setPrenom('aaaa')
+    //         ->setTel('aaaa');
 
-        $user = (new User)
-            ->setEmail('aaaa')
-            ->setRoles($roles)
-            ->setPassword('aaaa');
+    //     $roles[] = 'ROLE_USER';
 
-        $client = (new Client)
-            ->setNom('aaaa')
-            ->setPrenom('aaaa')
-            ->setAdresse('aaaa')
-            ->setTel('aaaa')
-            ->setVille('aaaa')
-            ->setCp('aaaa');
+    //     $user = (new User)
+    //         ->setEmail('aaaa')
+    //         ->setRoles($roles)
+    //         ->setPassword('aaaa');
 
-        $rdv = (new Rdv);
+    //     $client = (new Client)
+    //         ->setNom('aaaa')
+    //         ->setPrenom('aaaa')
+    //         ->setAdresse('aaaa')
+    //         ->setTel('aaaa')
+    //         ->setVille('aaaa')
+    //         ->setCp('aaaa');
 
-        $calendrier = (new Calendrier)
-            ->setTitre('aaaa')
-            ->setDebut(new \DateTime()) // Pour la valeur en DateTime
-            ->setFin(new \DateTime())  // Pour la valeur en DateTime
-            ->setDescription('aaaa')
-            ->setJournee('aaaa')
-            ->setCouleurFond('aaaa')
-            ->setCouleurBordure('aaaa')
-            ->setCouleurTexte('aaaa');
+    //     $rdv = (new Rdv);
 
-        $kernel = self::bootKernel();
+    //     $calendrier = (new Calendrier)
+    //         ->setTitre('aaaa')
+    //         ->setDebut(new \DateTime()) // Pour la valeur en DateTime
+    //         ->setFin(new \DateTime())  // Pour la valeur en DateTime
+    //         ->setDescription('aaaa')
+    //         ->setJournee('aaaa')
+    //         ->setCouleurFond('aaaa')
+    //         ->setCouleurBordure('aaaa')
+    //         ->setCouleurTexte('aaaa');
 
-        $this->validator = self::$container->get('validator');
+    //     $kernel = self::bootKernel();
 
-        $error = $this->validator->validate($agent);
+    //     $this->validator = self::$container->get('validator');
 
-        $this->assertInstanceOf(Agent::class, $agent);
-        $this->assertCount(0, $error);
+    //     $error = $this->validator->validate($agent);
 
-        // $this->assertTrue(true);
-    }
+    //     // dd($error);
 
+    //     $this->assertCount(1, $error);
 
-    public function testAgentnameIsNotBlank(): void // test pour vérifier que le champs du nom de l'agent n'est pas vide
-    {
-        $agent = (new Agent)
-            ->setNom('')
-            ->setPrenom('aaaa')
-            ->setTel('aaaa');
-
-        $roles[] = 'ROLE_USER';
-
-        $user = (new User)
-            ->setEmail('aaaa')
-            ->setRoles($roles)
-            ->setPassword('aaaa');
-
-        $client = (new Client)
-            ->setNom('aaaa')
-            ->setPrenom('aaaa')
-            ->setAdresse('aaaa')
-            ->setTel('aaaa')
-            ->setVille('aaaa')
-            ->setCp('aaaa');
-
-        $rdv = (new Rdv);
-
-        $calendrier = (new Calendrier)
-            ->setTitre('aaaa')
-            ->setDebut(new \DateTime()) // Pour la valeur en DateTime
-            ->setFin(new \DateTime())  // Pour la valeur en DateTime
-            ->setDescription('aaaa')
-            ->setJournee('aaaa')
-            ->setCouleurFond('aaaa')
-            ->setCouleurBordure('aaaa')
-            ->setCouleurTexte('aaaa');
-
-        $kernel = self::bootKernel();
-
-        $this->validator = self::$container->get('validator');
-
-        $error = $this->validator->validate($agent);
-
-        // dd($error);
-
-        $this->assertCount(1, $error);
-
-        // $this->assertTrue(true);
-    }
+    //     // $this->assertTrue(true);
+    // }
 
 
-    public function testAgentsurnameIsNotBlank(): void // test pour vérifier que le champs du prénom de l'agent n'est pas vide
-    {
-        $agent = (new Agent)
-            ->setNom('aaaa')
-            ->setPrenom('')
-            ->setTel('aaaa');
+    // public function testAgentsurnameIsNotBlank(): void // test pour vérifier que le champs du prénom de l'agent n'est pas vide
+    // {
+    //     $agent = (new Agent)
+    //         ->setNom('aaaa')
+    //         ->setPrenom('')
+    //         ->setTel('aaaa');
 
-        $roles[] = 'ROLE_USER';
+    //     $roles[] = 'ROLE_USER';
 
-        $user = (new User)
-            ->setEmail('aaaa')
-            ->setRoles($roles)
-            ->setPassword('aaaa');
+    //     $user = (new User)
+    //         ->setEmail('aaaa')
+    //         ->setRoles($roles)
+    //         ->setPassword('aaaa');
 
-        $client = (new Client)
-            ->setNom('aaaa')
-            ->setPrenom('aaaa')
-            ->setAdresse('aaaa')
-            ->setTel('aaaa')
-            ->setVille('aaaa')
-            ->setCp('aaaa');
+    //     $client = (new Client)
+    //         ->setNom('aaaa')
+    //         ->setPrenom('aaaa')
+    //         ->setAdresse('aaaa')
+    //         ->setTel('aaaa')
+    //         ->setVille('aaaa')
+    //         ->setCp('aaaa');
 
-        $rdv = (new Rdv);
+    //     $rdv = (new Rdv);
 
-        $calendrier = (new Calendrier)
-            ->setTitre('aaaa')
-            ->setDebut(new \DateTime()) // Pour la valeur en DateTime
-            ->setFin(new \DateTime())  // Pour la valeur en DateTime
-            ->setDescription('aaaa')
-            ->setJournee('aaaa')
-            ->setCouleurFond('aaaa')
-            ->setCouleurBordure('aaaa')
-            ->setCouleurTexte('aaaa');
+    //     $calendrier = (new Calendrier)
+    //         ->setTitre('aaaa')
+    //         ->setDebut(new \DateTime()) // Pour la valeur en DateTime
+    //         ->setFin(new \DateTime())  // Pour la valeur en DateTime
+    //         ->setDescription('aaaa')
+    //         ->setJournee('aaaa')
+    //         ->setCouleurFond('aaaa')
+    //         ->setCouleurBordure('aaaa')
+    //         ->setCouleurTexte('aaaa');
 
-        $kernel = self::bootKernel();
+    //     $kernel = self::bootKernel();
 
-        $this->validator = self::$container->get('validator');
+    //     $this->validator = self::$container->get('validator');
 
-        $error = $this->validator->validate($agent);
+    //     $error = $this->validator->validate($agent);
 
-        // dd($error);
+    //     // dd($error);
 
-        $this->assertCount(1, $error);
+    //     $this->assertCount(1, $error);
 
-        // $this->assertTrue(true);
-    }
+    //     // $this->assertTrue(true);
+    // }
 }

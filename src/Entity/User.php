@@ -30,8 +30,8 @@ class User implements UserInterface
      * message = "Cet email '{{ value }}' n'est pas valide."
      * )
      * @Assert\Regex(
-     *      pattern = "/^[\w\s\dáàâäãéèêëíìîïóòôöõúùûüýÿÁÀÂÄÃÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜÝ\'\-\@\.]+$/i",
-     *      htmlPattern  = "[\w\s\áàâäãéèêëíìîïóòôöõúùûüýÿÁÀÂÄÃÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜÝ\'\-]+"
+     *      pattern = "/^[\w+\-\_\@\.]+$/i",
+     *      htmlPattern  = "[\w+\-\_]+"
      * )
      */
     private $email;
