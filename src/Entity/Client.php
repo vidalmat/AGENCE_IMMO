@@ -21,50 +21,56 @@ class Client
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=180)
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank(
+     *     message = "Le champ doit être rempli")
      * @Assert\Regex(
-     *      pattern = "/^[\w+/]+$/i",
-     *      htmlPattern = "[a-zA-Z-àâäéèêëïîôöùûüçñÀÂÄÉÈËÏÔÖÙÛÜŸÇÑæœÆŒ'( )]{1,50}+"
+     *     pattern = "/^[\w\s\dáàâäãéèêëíìîïóòôöõúùûüýÿÁÀÂÄÃÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜÝ\'\-]+$/i",
+     *     htmlPattern  = "[\w\s\áàâäãéèêëíìîïóòôöõúùûüýÿÁÀÂÄÃÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜÝ\'\-]+"
      * )
      */
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=180)
      * @ORM\JoinColumn(nullable=false)
-     * @Assert\NotNull()
-     *  @Assert\Regex(
-     *      pattern = "/^[\w+/]+$/i",
-     *      htmlPattern = "[a-zA-Z-àâäéèêëïîôöùûüçñÀÂÄÉÈËÏÔÖÙÛÜŸÇÑæœÆŒ'( )]{1,50}+"
+     * @Assert\NotBlank(
+     *     message = "Le champ doit être rempli")
+     * @Assert\Regex(
+     *     pattern = "/^[\w\s\dáàâäãéèêëíìîïóòôöõúùûüýÿÁÀÂÄÃÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜÝ\'\-]+$/i",
+     *     htmlPattern  = "[\w\s\áàâäãéèêëíìîïóòôöõúùûüýÿÁÀÂÄÃÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜÝ\'\-]+"
      * )
      */
     private $prenom;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=180)
      * @ORM\JoinColumn(nullable=false)
-     * @Assert\NotNull()
+     * @Assert\NotBlank(
+     *     message = "Le champ doit être rempli")
      * @Assert\Regex(
-     *      pattern = "/^[\w+/]+$/i",
-     *      htmlPattern = "[a-zA-Z-àâäéèêëïîôöùûüçñÀÂÄÉÈËÏÔÖÙÛÜŸÇÑæœÆŒ'( )]{1,50}+"
+     *     pattern = "/^[\w\s\dáàâäãéèêëíìîïóòôöõúùûüýÿÁÀÂÄÃÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜÝ\'\-]+$/i",
+     *     htmlPattern  = "[\w\s\áàâäãéèêëíìîïóòôöõúùûüýÿÁÀÂÄÃÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜÝ\'\-]+"
      * )
      */
     private $adresse;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=180)
      * @ORM\JoinColumn(nullable=false)
-     * @Assert\NotNull()
+     * @Assert\NotBlank(
+     *     message = "Le champ doit être rempli")
      * @Assert\Regex(
-     *      pattern = "/^[\d+/]+$/i",
-     *      htmlPattern = "[a-zA-Z-àâäéèêëïîôöùûüçñÀÂÄÉÈËÏÔÖÙÛÜŸÇÑæœÆŒ'( )]{1,50}+"
+     *     pattern = "/^[\w\s\dáàâäãéèêëíìîïóòôöõúùûüýÿÁÀÂÄÃÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜÝ\'\-]+$/i",
+     *     htmlPattern  = "[\w\s\áàâäãéèêëíìîïóòôöõúùûüýÿÁÀÂÄÃÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜÝ\'\-]+"
      * )
      */
     private $tel;
 
     /**
      * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
+     * @Assert\NotBlank
      */
     private $user;
 
@@ -79,31 +85,32 @@ class Client
     private $rdv;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=180)
      * @ORM\JoinColumn(nullable=false)
-     * @Assert\NotNull()
+     * @Assert\NotBlank(
+     *     message = "Le champ doit être rempli")
      * @Assert\Regex(
-     *      pattern = "/^[\w+/]+$/i",
-     *      htmlPattern = "[a-zA-Z-àâäéèêëïîôöùûüçñÀÂÄÉÈËÏÔÖÙÛÜŸÇÑæœÆŒ'( )]{1,50}+"
-     * )
+     *     pattern = "/^[\w\s\dáàâäãéèêëíìîïóòôöõúùûüýÿÁÀÂÄÃÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜÝ\'\-]+$/i",
+     *     htmlPattern  = "[\w\s\áàâäãéèêëíìîïóòôöõúùûüýÿÁÀÂÄÃÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜÝ\'\-]+"
+     *  )
      */
     private $ville;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="string", length=180)
      * @ORM\JoinColumn(nullable=false)
-     *  @Assert\NotNull()
-     *  @Assert\Length(
-     *      min = 5,
-     *      max = 5,
-     *      minMessage = "Vous n'avez pas rentré le nombre suffisant",
-     *      maxMessage = "Vous n'avez pas rentré le nombre suffisant",
-     * )
+     * @Assert\NotBlank(
+     *     message = "Le champ doit être rempli")
+     * @Assert\Length(
+     *     min = 5,
+     *     max = 5,
+     *     minMessage = "Vous n'avez pas rentré le nombre suffisant",
+     *     maxMessage = "Vous n'avez pas rentré le nombre suffisant"
+     * ),
      * @Assert\Regex(
-     *      pattern = "/^[\d+/]+$/i",
-     *      htmlPattern = "[a-zA-Z-àâäéèêëïîôöùûüçñÀÂÄÉÈËÏÔÖÙÛÜŸÇÑæœÆŒ'( )]{1,50}+"
-     * )
-     * 
+     *     pattern = "/^[\w\s\dáàâäãéèêëíìîïóòôöõúùûüýÿÁÀÂÄÃÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜÝ\'\-]+$/i",
+     *     htmlPattern  = "[\w\s\áàâäãéèêëíìîïóòôöõúùûüýÿÁÀÂÄÃÉÈÊËÍÌÎÏÓÒÔÖÕÚÙÛÜÝ\'\-]+"
+     *  )
      */
     private $cp;
 

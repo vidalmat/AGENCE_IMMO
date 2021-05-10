@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Entity\Agent;
 use App\Entity\Client;
+use App\Form\UserType;
+use App\Form\ClientType;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,6 +18,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class SecurityController extends AbstractController
 {
+
     /**
      * @Route("/app_login", name="app_login")
      */
@@ -26,10 +29,10 @@ class SecurityController extends AbstractController
         // Dernier utilisateur gardé en mémoire
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        dump($request->request);
         return $this->render('security/login.html.twig',
          ['last_username' => $lastUsername, 'error' => $error]);
     }
+    
 
     /**
      * @Route("/logout", name="app_logout")
@@ -52,20 +55,29 @@ class SecurityController extends AbstractController
         $user = new User(); 
         $client = new Client();
 
-        $user->setRoles(["ROLE_USER"]);
-        $user->setEmail($request->request->get("email"));
-        $user->setPassword($encoder->encodePassword($user, $request->request->get("password")));
-        $manager->persist($user);
-        dump($user);
-        
-        $client->setData($request->request->all());
-        $client->setUser($user);
+        $form = $this->createForm(ClientType::class, $client);
+        $formuser = $this->createForm(UserType::class, $user);
 
-        $manager->persist($client);
-        $manager->flush();
-       
-        dump($request->request);
-        return $this->redirectToRoute("app_login");
+        $form->handleRequest($request);
+        $formuser->handleRequest($request);
+        if($formuser->isSubmitted() && $formuser->isValid()){
+            $user->setRoles(["ROLE_USER"]);
+            $user->setPassword($encoder->encodePassword($user, $user->getPassword()));
+            $client->setUser($user);
+            if($form->isSubmitted() && $form->isValid()){
+                $manager->persist($user);
+                $manager->persist($client);
+                $manager->flush();
+                return $this->redirectToRoute("app_login");
+            }
+        }
+
+        return $this->render("security/login.html.twig", [
+            'form'=> $form->createView(), 
+            'formuser'=> $formuser->createView()
+        ]);
     }
+
+    
     
 }
