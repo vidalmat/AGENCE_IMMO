@@ -57,9 +57,9 @@ class SecurityController extends AbstractController
 
         $form = $this->createForm(ClientType::class, $client);
         $formuser = $this->createForm(UserType::class, $user);
-
-        $form->handleRequest($request);
         $formuser->handleRequest($request);
+        $form->handleRequest($request);
+        
         if($formuser->isSubmitted() && $formuser->isValid()){
             $user->setRoles(["ROLE_USER"]);
             $user->setPassword($encoder->encodePassword($user, $user->getPassword()));
@@ -68,7 +68,7 @@ class SecurityController extends AbstractController
                 $manager->persist($user);
                 $manager->persist($client);
                 $manager->flush();
-                return $this->redirectToRoute("app_login");
+                return $this->redirectToRoute("home");
             }
         }
 

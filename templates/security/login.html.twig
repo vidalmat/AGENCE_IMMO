@@ -24,31 +24,12 @@
             <button class="switchbutton" type="button">Créer un compte</button>
         </div>
     </div>
-    <!-- <div id="form_button">
-        <div class="conteneur_form">
-            <div class="formulaire">
-                <form action="{{path("add_user")}}" method="POST">
-                    <input type="text" placeholder="Nom" name="nom" id="nom">
-                    <input type="text" placeholder="Prénom" name="prenom" id="prenom">
-                    <input type="text" placeholder="Adresse" name="adresse" id="adresse">
-                    <input type="text" placeholder="Ville" name="ville" id="ville">
-                    <input type="text" placeholder="Code Postal" name="cp" id="cp">
-                    <input type="number" placeholder="Téléphone" name="tel" id="telephone">
-                    <input type="text" placeholder="Email" name="email" id="mail">
-                    <input type="password" placeholder="Mot de passe" name="password" required >
-                    <input type="submit" value="S'inscrire" class="inscription">
-                </form>
-            </div>
-        </div>
-    </div> -->
-
-
-    <!-- <div id="form_button"> -->
+    {# <div id="form_button"> #}
         <div class="formulaire">
         {{ form_start(form) }}
         {{ form_start(formuser) }}
-            
             {{ form_widget(form.nom) }}
+            {{ form_errors(form.nom)}}
             {{ form_widget(form.prenom) }}
             {{ form_widget(form.adresse) }}
             {{ form_widget(form.ville) }}
@@ -57,8 +38,8 @@
             {{ form_widget(formuser.email) }}
             {{ form_widget(formuser.password) }}
             <input type="submit" value="S'inscrire" class="inscription">
+            {{ form_rest(formuser) }}
         {{ form_end(form) }}
-        {{ form_end(formuser) }}
     </div>
     </div>
     <script src="js/button_showform.js"></script><!-- utilisation de js pour faire apparaître le formulaire -->
