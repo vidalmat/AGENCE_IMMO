@@ -65,11 +65,6 @@ class Agent
     private $clients;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Rdv::class, inversedBy="Agent")
-     */
-    private $rdv;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Calendrier::class, inversedBy="Agent")
      */
     private $calendrier;
@@ -78,6 +73,12 @@ class Agent
      * @ORM\OneToMany(targetEntity=Calendrier::class, mappedBy="Agent")
      */
     private $calendriers;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Biens::class, mappedBy="Agent", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $biens;
 
     public function __construct()
     {
@@ -168,18 +169,6 @@ class Agent
         return $this;
     }
 
-    public function getRdv(): ?Rdv
-    {
-        return $this->rdv;
-    }
-
-    public function setRdv(?Rdv $rdv): self
-    {
-        $this->rdv = $rdv;
-
-        return $this;
-    }
-
     public function getCalendrier(): ?Calendrier
     {
         return $this->calendrier;
@@ -218,6 +207,28 @@ class Agent
                 $calendrier->setAgent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getBiens(): ?Biens
+    {
+        return $this->biens;
+    }
+
+    public function setBiens(?Biens $biens): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($biens === null && $this->biens !== null) {
+            $this->biens->setAgent(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($biens !== null && $biens->getAgent() !== $this) {
+            $biens->setAgent($this);
+        }
+
+        $this->biens = $biens;
 
         return $this;
     }

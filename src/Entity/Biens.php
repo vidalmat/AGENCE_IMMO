@@ -42,6 +42,11 @@ class Biens
      */
     private $prix;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Agent::class, inversedBy="biens", cascade={"persist", "remove"})
+     */
+    private $Agent;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,18 @@ class Biens
     public function setPrix(string $prix): self
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getAgent(): ?Agent
+    {
+        return $this->Agent;
+    }
+
+    public function setAgent(?Agent $Agent): self
+    {
+        $this->Agent = $Agent;
 
         return $this;
     }

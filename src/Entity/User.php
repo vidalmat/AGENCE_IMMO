@@ -52,11 +52,6 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\OneToMany(targetEntity=User::class, mappedBy="users")
-     */
-    private $rdv;
-
-    /**
      * @ORM\OneToOne(targetEntity=Agent::class, mappedBy="user", cascade={"persist", "remove"})
      */
     private $agent;
@@ -145,37 +140,6 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
-    }
-  
-
-    /**
-     * @return Collection|self[]
-     */
-    public function getRdv(): Collection
-    {
-        return $this->rdv;
-    }
-
-    public function addRdv(self $rdv): self
-    {
-        if (!$this->rdv->contains($rdv)) {
-            $this->rdv[] = $rdv;
-            //$rdv->setUsers($this);
-        }
-
-        return $this;
-    }
-
-    public function removeRdv(self $rdv): self
-    {
-        if ($this->rdv->removeElement($rdv)) {
-            // set the owning side to null (unless already changed)
-           // if ($rdv->getUsers() === $this) {
-           //     $rdv->setUsers(null);
-            //}
-        }
-
-        return $this;
     }
 
     public function getAgent(): ?Agent

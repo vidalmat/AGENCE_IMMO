@@ -30,8 +30,6 @@ class AgentTest extends KernelTestCase
             ->setVille('aaaa')
             ->setCp('aaaa');
 
-        $rdv = (new Rdv);
-
         $calendrier = (new Calendrier)
             ->setTitre('aaaa')
             ->setDebut(new \DateTime()) // Pour la valeur en DateTime
@@ -48,8 +46,7 @@ class AgentTest extends KernelTestCase
             ->setTel('aaaa')
             ->addClient($client)
             ->setUser($user)
-            ->addCalendrier($calendrier)
-            ->setRdv($rdv);
+            ->addCalendrier($calendrier);
 
     }
 

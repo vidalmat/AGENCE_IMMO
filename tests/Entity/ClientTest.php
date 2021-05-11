@@ -2,7 +2,6 @@
 
 namespace App\Tests;
 
-use App\Entity\Rdv;
 use App\Entity\User;
 use App\Entity\Agent;
 use App\Entity\Client;
@@ -21,8 +20,6 @@ class ClientTest extends KernelTestCase
             ->setEmail('aaaa')
             ->setRoles($roles)
             ->setPassword('aaaa');
-
-        $rdv = (new Rdv);
 
         $calendrier = (new Calendrier)
             ->setTitre('aaaa')
@@ -48,8 +45,7 @@ class ClientTest extends KernelTestCase
             ->setCp('84200')
             ->setAgent($agent)
             ->setUser($user)
-            ->addCalendrier($calendrier)
-            ->setRdv($rdv);
+            ->addCalendrier($calendrier);
     }
 
 
