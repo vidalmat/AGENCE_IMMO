@@ -24,7 +24,7 @@
             <button class="switchbutton" type="button">Créer un compte</button>
         </div>
     </div>
-    {# <div id="form_button"> #}
+    <div id="form_button">
         <div class="formulaire">
         {{ form_start(form) }}
         {{ form_start(formuser) }}
@@ -38,7 +38,7 @@
             {{ form_widget(formuser.email) }}
             {{ form_widget(formuser.password) }}
             <input type="submit" value="S'inscrire" class="inscription">
-            {{ form_rest(formuser) }}
+        {{ form_rest(formuser) }}
         {{ form_end(form) }}
     </div>
     </div>
