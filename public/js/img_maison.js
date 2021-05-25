@@ -11,7 +11,7 @@ var html = "";
 
 for(image of images) {
   html += "<div class='item' class='it" + images.indexOf(image) + "'>";
-  html += "<img src='../images/page3/" + image.nom + "' alt='" + image.alt + "'>";
+  html += "<img src='/images/page3/" + image.nom + "' alt='" + image.alt + "'>";
   html += "</div>"
 }
 
