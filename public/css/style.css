@@ -1170,19 +1170,19 @@ footer{
     
     
     /* rotateY  = calc((360/nombres d'images)*n° d'image) */
-    #it0 {
+    .it0 {
     transform: rotateY(calc((360deg/8)*0)) translateZ(calc(37vw));
     }
-    #it1 {
+    .it1 {
     transform: rotateY(calc((360deg/8)*1)) translateZ(calc(37vw));
     }
-    #it2 {
+    .it2 {
     transform: rotateY(calc((360deg/8)*2)) translateZ(calc(37vw));
     }
-    #it3 {
+    .it3 {
     transform: rotateY(calc((360deg/8)*3)) translateZ(calc(37vw));
     }
-    #it4 {
+    .it4 {
         transform: rotateY(calc((360deg/8)*3)) translateZ(calc(37vw));
         }
     
