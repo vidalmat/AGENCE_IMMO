@@ -1135,7 +1135,7 @@ footer{
     perspective: 1500px;
     }
     
-    .carousel {
+    .carousel, .carousel_maison {
     width: 100%;
     position: absolute;
     transform-style: preserve-3d;

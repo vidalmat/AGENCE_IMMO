@@ -1,4 +1,4 @@
-var carousel = document.querySelector('.carousel');
+var carousel = document.querySelector('.carousel_maison');
 var images = [
   {nom: "maison.jpg", alt:"maison", desc:""},
   {nom: "maison2.jpg", alt:"maison2", desc:""},
