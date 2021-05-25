@@ -1,4 +1,4 @@
-var carousel = document.querySelector('.carousel_maison');
+var carousel = document.querySelector('.carousel');
 var images = [
   {nom: "maison.jpg", alt:"maison", desc:""},
   {nom: "maison2.jpg", alt:"maison2", desc:""},
@@ -11,7 +11,7 @@ var html = "";
 
 for(image of images) {
   html += "<div class='item' class='it" + images.indexOf(image) + "'>";
-  html += "<img src='../images/page1/" + image.nom + "' alt='" + image.alt + "'>";
+  html += "<img src='../images/page3/" + image.nom + "' alt='" + image.alt + "'>";
   html += "</div>"
 }
 
