@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "start": "2021-04-21 00:00:00",
+    "end": "2021-04-21 00:00:00",
+    "title": "Rdv journ\u00e9e",
+    "description": "Visite pour la journ\u00e9e",
+    "allDay": true,
+    "backgroundColor": "#2624c2",
+    "borderColor": "#25a75d",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 2,
+    "start": "2021-04-25 10:00:00",
+    "end": "2021-04-25 12:00:00",
+    "title": "Rdv matin",
+    "description": "Visite matin",
+    "allDay": false,
+    "backgroundColor": "#f72b2b",
+    "borderColor": "#000000",
+    "textColor": "#000000"
+  },
+  {
+    "id": 3,
+    "start": "2021-04-25 14:00:00",
+    "end": "2021-04-25 15:00:00",
+    "title": "Rdv apr\u00e8s-midi",
+    "description": "Rdv l'apr\u00e8s-midi pour visite",
+    "allDay": false,
+    "backgroundColor": "#b61616",
+    "borderColor": "#b09696",
+    "textColor": "#ffffff"
+  },
+  {
+    "id": 4,
+    "start": "2021-05-06 00:00:00",
+    "end": "2021-05-06 00:00:00",
+    "title": "Rdv journ\u00e9e autre client",
+    "description": "Rdv journ\u00e9e autre client",
+    "allDay": true,
+    "backgroundColor": "#000000",
+    "borderColor": "#000000",
+    "textColor": "#ffffff"
+  }
+]
