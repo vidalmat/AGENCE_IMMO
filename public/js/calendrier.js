@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
        events: '/datas/rdvs.json'
        /*{
          url: Routing.generate('rdv/index.html.twig', { nom: $('data').attr('id')}),}*/,
-      }
+        }
       );
       calendar.render();
     

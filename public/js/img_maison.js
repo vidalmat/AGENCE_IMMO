@@ -10,7 +10,7 @@ var images = [
 var html = "";
 
 for(image of images) {
-  html += "<div class='item' id='it" + images.indexOf(image) + "'>";
+  html += "<div class='item' class='it" + images.indexOf(image) + "'>";
   html += "<img src='/images/page1/" + image.nom + "' alt='" + image.alt + "'>";
   html += "</div>"
 }
