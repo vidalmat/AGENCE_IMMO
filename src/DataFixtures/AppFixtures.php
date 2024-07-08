@@ -17,11 +17,11 @@ class AppFixtures extends Fixture
         // $product = new Product();
         // $manager->persist($product);
 
-        for($i = 0; $i < 3; $i++) {
-            $cat = new Categorie();
-            $cat->setType("Catégorie " . $i);
-            $manager->persist($cat);
-        }
+        // for($i = 0; $i < 3; $i++) {
+        //     $cat = new Categorie();
+        //     $cat->setType("Catégorie " . $i);
+        //     $manager->persist($cat);
+        // }
 
         // for($i = 0; $i < 3; $i++) {
         //     $rdv = new Rdv();
